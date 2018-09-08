@@ -1,0 +1,42 @@
+@charset "UTF-8";
+
+/* default */
+body, header, p, h1, h2, h3, h4, h5, h6, ul, li, dl, dt, dd, table, th, td, form, fieldset, input, textarea, select{margin:0;padding:0}
+table{width:100%;table-layout:fixed;border-collapse:collapse}
+img, iframe, fieldset{border:0;vertical-align:top}
+ul{list-style:none}
+em, address{font-style:normal}
+caption,legend{font-size:0;line-height:0;width:0;height:0;visibility:hidden;overflow:hidden}
+button{cursor:pointer;margin:0;padding:0;background:none;border:0}
+a:hover, a:active, a:focus , a:link, a:visited {text-decoration:none; color: black;}
+input[type="checkbox"]{cursor:pointer;}
+body { font-family:'맑은고딕' ,'Malgun Gothic'; }
+
+#Player{ position: relative;margin: auto;width: 500px;height: 600px;border: solid 1px black;}
+#Playing { padding: 10px; }
+#Playing .controler{ padding-top:10px; text-align:center;}
+#Playing .controler button{ border-bottom: solid 1px #8c8c8c; border-right: solid 1px #8c8c8c; padding: 2px 5px; margin-left: 3px; }
+
+#TabList { padding: 10px 0; margin: 10px 0;  border-top: solid 1px #9a9a9a; border-bottom: solid 1px #9a9a9a; }
+#TabList ul { height: 25px; }
+#TabList ul:after{ content: ""; clear: both; display: block; }
+#TabList li{ position: relative; float: left; margin-left: 10px; }
+#TabList input[type="text"]{ width:100px; }
+#TabList li.on { border-bottom: solid 2px #ff3300; }
+#TabList li.on a {color: #ff3300 !important;}
+
+.list { overflow:auto; position: relative; padding: 0 10px 0 10px; height: 417px; }
+.list ul{ margin-top: 10px; padding-bottom: 10px; }
+.list ul>li input[type="checkbox"] { margin-right: 5px; }
+.list ul>li span { position: absolute; right: 0px; z-index: 10;}
+.list ul>li { position: relative; border-bottom: solid 1px #bfbfbf; margin-bottom:5px; padding:0 5px 5px 5px; }
+.list ul>li:last-child{ border:none;  margin-bottom:0px; padding-bottom: 0px; }
+.list button { padding :3px; border-bottom: solid 1px #8c8c8c; border-right: solid 1px #8c8c8c;  margin-left: 5px; }
+
+
+.playing{ border: dotted 4px #990000 !important; }
+.playing .in{  display: inline-block; font-size:7pt; line-height:20px; margin-left: 15px;}
+.selected, .selected a { color:#f2f2f2; background-color: #a6a6a6 !important;}
+
+.prograss { position: relative; width: 100%; height: 10px; background-color: beige; }
+.prograssbar { position:absolute; right:0px; width: 0%; height: 10px; background-color: skyblue; }

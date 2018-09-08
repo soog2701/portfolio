@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="ko" lang="ko">
+<head>
+	<title>music player</title>  
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" href="musicplayer.css">	
+</head>
+<body>
+	<div id="Player">
+		<!-- 재생부 -->
+		<div id="Playing">
+			<h2>Title</h2>
+			<span> 00:00 </span>
+			<div class="prograss">
+				<p class="prograssbar"></p>
+			</div>			
+			<div class="controler">
+				<button>이전곡</button>
+				<button>정지</button>
+				<button>재생</button>				
+				<button>다음곡</button>
+			</div>
+		</div>
+		<!-- 탭 -->
+		<div id="TabList">
+			<ul>
+				<li class="on"><a href="javascript:;">음원목록</a></li>
+				<!-- <li><a href="javascript:;">playlist1</a></li>
+				<li><a href="javascript:;">playlist2</a></li> -->
+				<!-- <li> <input type="text" > </li>	 -->			
+			</ul>
+		</div>
+		<!-- 음원목록 -->
+		<div id="MusicList" class="list">
+			<button>재생목록 생성</button>
+			<button>삭제</button>
+			<ul>
+				<!-- <li>
+					<input type="checkbox">
+					<a href="javascript:;">play3</a>
+					<span> 01:09 </span>
+				</li>
+				<li>
+					<input type="checkbox">
+					<a href="javascript:;">play4</a>
+					<span> 00:21 </span>
+				</li>
+				<li>
+					<input type="checkbox">
+					<a href="javascript:;">play5</a>
+					<span> 01:01 </span>
+				</li> -->
+			</ul>
+		</div>
+		<!-- 재생목록 -->
+		<div id ="playlistDiv">
+			<!-- <div class="list playList" id="playlist1" style="height: 0px;">
+				<button>가나다 정렬</button>
+				<button>랜덤 정렬</button>
+				<button>삭제</button>
+				<ul>
+					<li>
+						<a href="javascript:;">play1</a>
+						<span> 01:10 </span>
+					</li>
+					<li>
+						<a href="javascript:;">play6</a>
+						<span> 00:45 </span>
+					</li>
+					<li>
+						<a href="javascript:;">play4</a>
+						<span> 00:21 </span>
+					</li>
+					<li class="playing">
+						<a href="javascript:;">play2</a>
+
+						<span> 00:53 </span>
+					</li>
+					<li class="selected">
+						<a href="javascript:;">play7</a>
+						<span> 00:32 </span>
+					</li>
+				</ul>
+			</div> -->
+			
+		</div>
+	</div>
+	<script src="musicplayer.js"></script>	
+</body>
+
+</html>
