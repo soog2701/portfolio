@@ -1,12 +1,12 @@
 # labs
-## lab-a : music player
-  사용언어 : HTML, CSS, Javascript
+## lab-a : music player 
 
   jQuery 사용안하고 구현해보기 ( IE7~ 이상, 크로스브라우징 )
 
 ## lab-b : wether api
   react 와 날씨 api를 사용해서 오늘의 날씨페이지 만들어보기
-  작업중~
+  ( hthml, scss, react, webpack... )
+  작업중 ~
 
 # projects
 수행했던 프로젝트 js파일 모음  
