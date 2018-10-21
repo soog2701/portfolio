@@ -1,4 +1,5 @@
 # labs
+<<<<<<< HEAD
 ## lab-a : music player 
 
   jQuery 사용안하고 구현해보기 ( IE7~ 이상, 크로스브라우징 )
@@ -47,3 +48,9 @@
 	+ PC 웹 UI 개발 ( javascript ) 
 	+ 사용한 라이브러리 : jQuery, rGraph, greensock  
   
+=======
+## lab-a : music player
+  HTML,CSS,JAVASCRIPT
+
+ jQuery 사용안하고 구현해보기 ( IE7~ 이상, 크로스브라우징 )
+>>>>>>> 2a92b82071c0cac160f4c79a025733286738ee41
