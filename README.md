@@ -49,6 +49,3 @@
 	+ 사용한 라이브러리 : jQuery, rGraph, greensock  
   
 
-
- jQuery 사용안하고 구현해보기 ( IE7~ 이상, 크로스브라우징 )
->>>>>>> 2a92b82071c0cac160f4c79a025733286738ee41
