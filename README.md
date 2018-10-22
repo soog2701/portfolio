@@ -9,7 +9,7 @@
   ( hthml, scss, react, webpack... )
   ![2](https://user-images.githubusercontent.com/5829667/47294563-71cc3d80-d648-11e8-8537-7e4b9e83a98b.PNG)
   
-    작업중 ~
+   작업중 ~
 
 # projects
 수행했던 프로젝트 js파일 모음  
