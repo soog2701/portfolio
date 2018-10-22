@@ -7,6 +7,7 @@
 ## lab-b : wether api
   react 와 날씨 api를 사용해서 오늘의 날씨페이지 만들어보기
   ( hthml, scss, react, webpack... )
+  ![2](https://user-images.githubusercontent.com/5829667/47294563-71cc3d80-d648-11e8-8537-7e4b9e83a98b.PNG)
   작업중 ~
 
 # projects
