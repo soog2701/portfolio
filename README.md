@@ -6,8 +6,9 @@
 
 ## lab-b : wether api
   react 와 날씨 api를 사용해서 오늘의 날씨페이지 만들어보기
-  ( hthml, scss, react, webpack... )
-  작업중 ~
+   ( hthml, scss, react, webpack... )
+  
+   작업중 ~
 
 # projects
 수행했던 프로젝트 js파일 모음  
