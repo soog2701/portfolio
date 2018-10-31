@@ -8,10 +8,10 @@
   react 와 날씨 api를 사용해서 오늘의 날씨페이지 만들어보기
    ( hthml, scss, react, webpack... )
 
-  ![2](https://user-images.githubusercontent.com/5829667/47294563-71cc3d80-d648-11e8-8537-7e4b9e83a98b.PNG)
+  ![3](https://user-images.githubusercontent.com/5829667/47792807-227cc000-dd60-11e8-997f-6f9fd9bcd1ab.PNG)
 
   
-   작업중 ~
+   작업중 -
 
 # projects
 수행했던 프로젝트 js파일 모음  
