@@ -1,5 +1,6 @@
 const HtmlWebPackPlugin = require("html-webpack-plugin");
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const path = require('path');
 
 module.exports = {
     module: {
@@ -56,5 +57,11 @@ module.exports = {
         filename: "[name].css",
         chunkFilename: "[id].css"
       })
-    ]
+    ],
+    
+    devServer: {
+      contentBase: path.join(__dirname, 'dist'),
+      compress: true,
+      port: 9000
+    }
   };
