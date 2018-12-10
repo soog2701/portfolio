@@ -1,17 +1,7 @@
 # labs
 
-## lab-a : music player 
+## lab-a : 
 
-  jQuery 사용안하고 구현해보기 ( IE7~ 이상, 크로스브라우징 )
-
-## lab-b : wether api
-  react 와 날씨 api를 사용해서 오늘의 날씨페이지 만들어보기
-   ( hthml, scss, react, webpack... )
-
-  ![3](https://user-images.githubusercontent.com/5829667/47792807-227cc000-dd60-11e8-997f-6f9fd9bcd1ab.PNG)
-
-  
-   작업중 -
 
 # projects
 수행했던 프로젝트 js파일 모음  
