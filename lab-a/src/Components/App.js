@@ -23,6 +23,8 @@ import Typography from '@material-ui/core/Typography';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
+import movie from '../service/movie.js'
+
 const drawerWidth = 240;
 
 const styles = theme => ({
@@ -94,6 +96,10 @@ class App extends React.Component {
     handleDrawerClose = () => {
         this.setState({ open: false });
     };
+    componentDidMount () {
+        let s = movie()
+        console.log(s)
+    }
     render() {
         const { classes, theme } = this.props;
         const { open } = this.state;
