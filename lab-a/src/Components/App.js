@@ -25,6 +25,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 
 import movie from '../service/movie.js'
 import MediaControlCard from '../Components/contents/card.js'
+import Grid from '@material-ui/core/Grid';
 
 const drawerWidth = 240;
 
@@ -83,6 +84,9 @@ const styles = theme => ({
             duration: theme.transitions.duration.enteringScreen,
         }),
         marginLeft: 0,
+    },
+    contents: {
+        flexGrow: 1,
     },
 });
 class App extends React.Component {
@@ -169,7 +173,22 @@ class App extends React.Component {
                     })}
                 >
                     <div className={classes.drawerHeader} />
-                    <MediaControlCard />
+                    <div className={classes.contents}>
+                        <Grid container spacing={24}>
+                            <Grid item xs={3}>
+                                <MediaControlCard />
+                            </Grid>
+                            <Grid item xs={3}>
+                                <MediaControlCard />
+                            </Grid>
+                            <Grid item xs={3}>
+                                <MediaControlCard />
+                            </Grid>
+                            <Grid item xs={3}>
+                                <MediaControlCard />
+                            </Grid>
+                        </Grid>
+                    </div>
                 </main>
             </div>
         );

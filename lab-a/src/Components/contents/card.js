@@ -14,6 +14,9 @@ const styles = theme => ({
     card: {
         display: 'flex',
     },
+    cardlist: {
+        marginBottom: '10px'
+    },
     details: {
         display: 'flex',
         flexDirection: 'column',
@@ -39,18 +42,13 @@ const styles = theme => ({
 class MediaControlCard extends React.Component {
     state = {
         spacing: '16',
-};
-    
-    handleChange = key => (event, value) => {
-        this.setState({
-            [key]: value,
-        });
     };
+    
     createList = (classes, theme) => {
         let list = []
         for(let i = 0; i < 3; i++) {
             list.push(
-            <Card>
+            <Card className={classes.cardlist}>
                 <div className={classes.details}>
                     <CardContent className={classes.content}>
                     <Typography component="h5" variant="h5">
