@@ -20,7 +20,7 @@ module.exports = {
           }
         ]
       }
-    ]
+    ]    
   },
   plugins: [
     new HtmlWebPackPlugin({
@@ -31,5 +31,8 @@ module.exports = {
       filename: "[name].css",
       chunkFilename: "[id].css"
     })
-  ]
+  ],
+  devServer: {
+    historyApiFallback: true,
+  }
 };
