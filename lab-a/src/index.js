@@ -4,8 +4,17 @@ import ReactDOM from "react-dom";
 import Root from './router/router';
 
 // import App from "./Components/App";
-import style from "./styles/main.css";
+import "./styles/main.css";
 
+import { createStore } from 'redux'
+import { Provider } from 'react-redux'
+import rootReducer from './reducers'
+
+const store = createStore(rootReducer)
 
 // ReactDOM.render(<App />, document.getElementById("app"));
-ReactDOM.render(<Root />, document.getElementById('app'));
+ReactDOM.render(
+    <Provider store={store}>
+        <Root />
+    </Provider>, 
+    document.getElementById('app'));
