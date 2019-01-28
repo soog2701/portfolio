@@ -9,6 +9,7 @@ import Typography from '@material-ui/core/Typography';
 import SkipPreviousIcon from '@material-ui/icons/SkipPrevious';
 import PlayArrowIcon from '@material-ui/icons/PlayArrow';
 import SkipNextIcon from '@material-ui/icons/SkipNext';
+import Grid from '@material-ui/core/Grid';
 
 const styles = theme => ({
     card: {
@@ -48,7 +49,7 @@ class MediaControlCard extends React.Component {
         let list = []
         for(let i = 0; i < 3; i++) {
             list.push(
-            <Card className={classes.cardlist}>
+            <Card className={classes.cardlist} key={i}>
                 <div className={classes.details}>
                     <CardContent className={classes.content}>
                     <Typography component="h5" variant="h5">
@@ -59,15 +60,15 @@ class MediaControlCard extends React.Component {
                     </Typography>
                     </CardContent>
                     <div className={classes.controls}>
-                    <IconButton aria-label="Previous">
-                        {theme.direction === 'rtl' ? <SkipNextIcon /> : <SkipPreviousIcon />}
-                    </IconButton>
-                    <IconButton aria-label="Play/pause">
-                        <PlayArrowIcon className={classes.playIcon} />
-                    </IconButton>
-                    <IconButton aria-label="Next">
-                        {theme.direction === 'rtl' ? <SkipPreviousIcon /> : <SkipNextIcon />}
-                    </IconButton>
+                        <IconButton aria-label="Previous">
+                            {theme.direction === 'rtl' ? <SkipNextIcon /> : <SkipPreviousIcon />}
+                        </IconButton>
+                        <IconButton aria-label="Play/pause">
+                            <PlayArrowIcon className={classes.playIcon} />
+                        </IconButton>
+                        <IconButton aria-label="Next">
+                            {theme.direction === 'rtl' ? <SkipPreviousIcon /> : <SkipNextIcon />}
+                        </IconButton>
                     </div>
                 </div>
             </Card>
@@ -79,7 +80,20 @@ class MediaControlCard extends React.Component {
         const { classes, theme } = this.props;
         const { spacing } = this.state;
         return (
-            this.createList(classes, theme)
+            <Grid container spacing={24}>
+                <Grid item xs={3}>
+                    {this.createList(classes, theme)}
+                </Grid>
+                <Grid item xs={3}>
+                    {this.createList(classes, theme)}
+                </Grid>
+                <Grid item xs={3}>
+                    {this.createList(classes, theme)}
+                </Grid>
+                <Grid item xs={3}>
+                    {this.createList(classes, theme)}
+                </Grid>
+            </Grid>
         );
     }
 }

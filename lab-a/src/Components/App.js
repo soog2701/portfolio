@@ -27,6 +27,8 @@ import movie from '../service/movie.js'
 import MediaControlCard from '../Components/contents/card.js'
 import Grid from '@material-ui/core/Grid';
 
+import Root from '../router/router.js';
+
 const drawerWidth = 240;
 
 const styles = theme => ({
@@ -173,42 +175,15 @@ class App extends React.Component {
                     })}
                 >
                     <div className={classes.drawerHeader} />
-                    <div className={classes.contents}>
-                        <Grid container spacing={24}>
-                            <Grid item xs={3}>
-                                <MediaControlCard />
-                            </Grid>
-                            <Grid item xs={3}>
-                                <MediaControlCard />
-                            </Grid>
-                            <Grid item xs={3}>
-                                <MediaControlCard />
-                            </Grid>
-                            <Grid item xs={3}>
-                                <MediaControlCard />
-                            </Grid>
-                        </Grid>
+                    <div className={classes.contents} >
+                        <Root />
                     </div>
                 </main>
             </div>
         );
     }
 }
-// const App = () => {
-//     const { classes } = this.props;
-//     return (
-//         <div>
-//             <p>React here!</p>
-//             <AppBar position="static">
-//                 <Toolbar>
-//                     <IconButton className={classes.menuButton} color="inherit" aria-label="Menu">
-//                         <MenuIcon />
-//                     </IconButton>
-//                 </Toolbar>
-//             </AppBar>
-//         </div>
-//     );
-// };
+
 App.propTypes = {
     classes: PropTypes.object.isRequired,
     container: PropTypes.object,
