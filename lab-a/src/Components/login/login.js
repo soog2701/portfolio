@@ -8,11 +8,17 @@ import InputAdornment from '@material-ui/core/InputAdornment';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 import AccountCircle from '@material-ui/icons/AccountCircle';
+import Button from '@material-ui/core/Button';
+import Fab from '@material-ui/core/Fab';
+import Icon from '@material-ui/core/Icon';
 
 const styles = theme => ({
     root: {
         flexGrow: 1,
     },
+    margin: {
+        marginTop: '20px'
+    }
 });
 
 class Login extends React.Component {
@@ -27,15 +33,28 @@ class Login extends React.Component {
             <div className={classes.root}>
                 <Grid container item xs={12} justify='center'>
                     <FormControl>
-                        <InputLabel htmlFor="input-with-icon-adornment">Login ID</InputLabel>
-                        <Input
-                        id="input-with-icon-adornment"
-                        startAdornment={
-                            <InputAdornment position="start">
-                            <AccountCircle />
-                            </InputAdornment>
-                        }
-                        />
+                        <Grid container spacing={8} justify='center'>
+                            <Grid item>
+                                <AccountCircle />
+                            </Grid>
+                        </Grid>
+                        <Grid container spacing={8} alignItems="flex-end">
+                            <Grid item>
+                                <TextField id="input-id" label="Login" />
+                            </Grid>
+                        </Grid>
+                        <Grid container spacing={8} alignItems="flex-end">
+                            <Grid item>
+                                <TextField id="input-password" label="Password" />
+                            </Grid>
+                        </Grid>
+                        <Grid container spacing={8} justify='center'>
+                            <Grid item>
+                                <Button variant="contained" size="small" color="primary" className={classes.margin}>
+                                login
+                                </Button>
+                            </Grid>
+                        </Grid>
                     </FormControl>
                 </Grid>
             </div>
