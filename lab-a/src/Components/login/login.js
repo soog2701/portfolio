@@ -1,5 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux'
+
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Input from '@material-ui/core/Input';
@@ -12,6 +14,8 @@ import Button from '@material-ui/core/Button';
 import Fab from '@material-ui/core/Fab';
 import Icon from '@material-ui/core/Icon';
 
+import { Login, Logout } from '../../actions'
+
 const styles = theme => ({
     root: {
         flexGrow: 1,
@@ -21,12 +25,32 @@ const styles = theme => ({
     }
 });
 
-class Login extends React.Component {
+class LoginView extends React.Component {
     state = {
-        id: '',
-        password: ''
+        id: 'admin',
+        password: 'admin'
     };
-    
+    componentWillMount() {
+        let { dispatch } = this.props;
+        console.log(this.props)
+    }
+    fakeAuth = {
+        isAuthenticated: false,
+        authenticate(cb) {
+            this.isAuthenticated = true;
+            setTimeout(cb, 100); // fake async
+        },
+        signout(cb) {
+            this.isAuthenticated = false;
+            setTimeout(cb, 100);
+        }
+    };
+    goLogin = () => {
+        console.log('login')
+        console.log(this.props)
+        console.log(this.context)
+        console.log(store.getState())
+    };
     render() {
         const { classes, theme } = this.props;
         return (
@@ -40,17 +64,17 @@ class Login extends React.Component {
                         </Grid>
                         <Grid container spacing={8} alignItems="flex-end">
                             <Grid item>
-                                <TextField id="input-id" label="Login" />
+                                <TextField id="input-id" value={this.state.id} label="Login" />
                             </Grid>
                         </Grid>
-                        <Grid container spacing={8} alignItems="flex-end">
+                        <Grid container spacing={8} alignItems="flex-end" className={classes.margin} >
                             <Grid item>
-                                <TextField id="input-password" label="Password" />
+                                <TextField id="input-password" value={this.state.password} label="Password" type="password" />
                             </Grid>
                         </Grid>
                         <Grid container spacing={8} justify='center'>
                             <Grid item>
-                                <Button variant="contained" size="small" color="primary" className={classes.margin}>
+                                <Button variant="contained" size="small" color="primary" className={classes.margin} onClick={this.goLogin}>
                                 login
                                 </Button>
                             </Grid>
@@ -62,9 +86,10 @@ class Login extends React.Component {
     }
 }
 
-Login.propTypes = {
+LoginView.propTypes = {
     classes: PropTypes.object.isRequired,
     theme: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles, { withTheme: true })(Login);
+export default connect()(withStyles(styles, { withTheme: true })(LoginView));
+// export default withStyles(styles, { withTheme: true })(LoginView);
