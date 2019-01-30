@@ -14,6 +14,7 @@ import Button from '@material-ui/core/Button';
 import Fab from '@material-ui/core/Fab';
 import Icon from '@material-ui/core/Icon';
 
+
 import { Login, Logout } from '../../actions'
 
 const styles = theme => ({
@@ -30,10 +31,10 @@ class LoginView extends React.Component {
         id: 'admin',
         password: 'admin'
     };
-    componentWillMount() {
-        let { dispatch } = this.props;
-        console.log(this.props)
-    }
+    // componentWillMount() {
+    //     let { dispatch } = this.props;
+    //     console.log(this.props)
+    // }
     fakeAuth = {
         isAuthenticated: false,
         authenticate(cb) {
@@ -49,7 +50,8 @@ class LoginView extends React.Component {
         console.log('login')
         console.log(this.props)
         console.log(this.context)
-        console.log(store.getState())
+        this.props.onLogin
+        // console.log(store.getState())
     };
     render() {
         const { classes, theme } = this.props;
@@ -85,11 +87,16 @@ class LoginView extends React.Component {
         )
     }
 }
-
+let mapDispatchToProps = (dispatch) => {
+    return {
+        onLogin: () => dispatch(Login),
+        onLogout: () => dispatch(Logout)
+    }
+}
 LoginView.propTypes = {
     classes: PropTypes.object.isRequired,
     theme: PropTypes.object.isRequired,
 };
 
-export default connect()(withStyles(styles, { withTheme: true })(LoginView));
+export default connect(undefined, mapDispatchToProps)(withStyles(styles, { withTheme: true })(LoginView));
 // export default withStyles(styles, { withTheme: true })(LoginView);

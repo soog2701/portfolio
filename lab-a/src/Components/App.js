@@ -105,6 +105,7 @@ class App extends React.Component {
     };
     componentDidMount () {
         let s = movie()
+        // 비동기 
         console.log(s)
     }
     render() {

@@ -20,13 +20,16 @@ export const VisibilityFilters = {
     SHOW_COMPLETED: 'SHOW_COMPLETED',
     SHOW_ACTIVE: 'SHOW_ACTIVE'
 }
-export const Login = {
-    isAuthenticated: true,
-    id: '',
-    token: ''
-}
-export const Logout = {
-    isAuthenticated: false,
-    id: null,
-    token: null
-}
+// 액션 생산자는 단지 액션을 반환 / 실제로 액션을 보내려면 결과값을 dispatch() 함수에 넘깁니다:
+export const Login = (isAuthenticated, id, token) => ({
+    type: 'LOGIN',
+    isAuthenticated,
+    id,
+    token
+})
+export const Logout = (isAuthenticated, id, token) => ({
+    type: 'LOGOUT',
+    isAuthenticated,
+    id,
+    token
+})
