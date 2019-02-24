@@ -1,31 +1,15 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import 'react-app-polyfill/ie9'; // For IE 9-11 support
+import 'react-app-polyfill/ie11'; // For IE 11 support
+import './layouts/css/index.css';
+import App from './App';
+import * as serviceWorker from './serviceWorker';
 
-// import Root from './router/router';
 
-import App from "./Components/App";
-import "./styles/main.css";
+ReactDOM.render(<App />, document.getElementById('root'));
 
-import { createStore } from 'redux'
-import { Provider } from 'react-redux'
-import rootReducer from './reducers'
-
-// import { Login } from './actions'
-
-const store = createStore(rootReducer)
-// 초기 상태를 기록합니다.
-console.log(store.getState());
-// 상태가 바뀔때마다 기록합니다.
-let unsubscribe = store.subscribe(() =>
-    console.log(store.getState())
-);
-// 액션들을 보냅니다.
-// store.dispatch(Login(true, 'user1', 'token1'));
-
-// ReactDOM.render(<App />, document.getElementById("app"));
-ReactDOM.render(
-    <Provider store={store}>
-        <App />
-    </Provider>, 
-    document.getElementById('app')
-);
+// If you want your app to work offline and load faster, you can change
+// unregister() to register() below. Note this comes with some pitfalls.
+// Learn more about service workers: http://bit.ly/CRA-PWA
+serviceWorker.unregister();
