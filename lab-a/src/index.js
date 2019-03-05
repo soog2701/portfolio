@@ -6,6 +6,8 @@ import './layouts/css/index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+// const store = configureStore();
+// store.runSaga(rootSaga);
 
 ReactDOM.render(<App />, document.getElementById('root'));
 

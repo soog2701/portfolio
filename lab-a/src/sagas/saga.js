@@ -6,9 +6,10 @@ import * as actions from "../actions";
 import axios from "axios";
 
 //type
-export const FETCH_BOARDS = "FETCH_BOARDS";
-export const FETCH_BOARDS_FULFILLED = "FETCH_BOARDS_FULFILLED";
-export const FETCH_BOARDS_REJECTED = "FETCH_BOARDS_REJECTED";
+// const FETCH_BOARDS = "FETCH_BOARDS";
+// const FETCH_BOARDS_FULFILLED = "FETCH_BOARDS_FULFILLED";
+// const FETCH_BOARDS_REJECTED = "FETCH_BOARDS_REJECTED";
+import * as types from '../type/'
 
 function* fetchBoardsSaga() {
   // try catch finally 구문으로 오류 제어가 가능하다.
@@ -25,7 +26,7 @@ function* fetchBoardsSaga() {
 
 function* watchBoard() {
   // type의 action이 실행되면 fetchBoardsSaga도 항상(Every) 실행한다
-  yield takeEvery(FETCH_BOARDS, fetchBoardsSaga);
+  yield takeEvery(types.FETCH_BOARDS, fetchBoardsSaga);
 }
 
 // 모든 listener(watcher)를 하나로 묶어준다.
@@ -35,3 +36,33 @@ export default function* root() {
 }
 
 // action => saga => action => reducer 로 연결되는 saga가 완성
+
+///// login 더미작업 vuex 의 mutations?
+function* loginSaga() {
+  try {
+    const { data } = yield axios.get("/boards"); // test
+    yield put(actions.token(data));
+  } catch (error) {
+    yield put(actions.logout(error.response));
+  }
+}
+
+function* watchLogin() {
+  // type의 action이 실행되면 fetchBoardsSaga도 항상(Every) 실행한다
+  yield takeEvery(types.TOKEN, loginSaga);
+}
+
+export function* loginRoot() {
+  yield spawn(watchLogin);
+}
+
+// const someAction = createAction('some action')
+
+// function* someSaga() {
+//   // make some async staff
+// }
+
+// export default function* saga() {
+//   yield takeLatest(someAction.getType(), someSaga)
+//   // and for each action the same staff ...
+// }
