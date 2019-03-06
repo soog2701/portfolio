@@ -31,3 +31,8 @@ export const login = user => ({
     type: types.TOKEN,
     payload: user
 })
+
+export const logout = user => ({
+    type: types.TOKEN,
+    payload: user
+})

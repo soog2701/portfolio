@@ -48,7 +48,6 @@ function* loginSaga() {
 }
 
 function* watchLogin() {
-  // type의 action이 실행되면 fetchBoardsSaga도 항상(Every) 실행한다
   yield takeEvery(types.TOKEN, loginSaga);
 }
 
