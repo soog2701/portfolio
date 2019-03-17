@@ -15,7 +15,7 @@ import Fab from '@material-ui/core/Fab';
 import Icon from '@material-ui/core/Icon';
 
 
-// import { Login, Logout } from '../../actions'
+import { login, logout } from '../../actions'
 
 const styles = theme => ({
     root: {
@@ -50,7 +50,8 @@ class LoginView extends React.Component {
         console.log('login')
         console.log(this.props)
         console.log(this.context)
-        // this.props.onLogin
+        // this.props.onLogin({id: 'test', password: '123'})
+        this.props.onLogin()
         // console.log(store.getState())
     };
     render() {
@@ -87,16 +88,16 @@ class LoginView extends React.Component {
         )
     }
 }
-// let mapDispatchToProps = (dispatch) => {
-//     return {
-//         onLogin: () => dispatch(Login),
-//         onLogout: () => dispatch(Logout)
-//     }
-// }
+let mapDispatchToProps = (dispatch) => {
+    return {
+        onLogin: () => dispatch(login), // => error
+        onLogout: () => dispatch(logout), // => error
+    }
+}
 LoginView.propTypes = {
     classes: PropTypes.object.isRequired,
     theme: PropTypes.object.isRequired,
 };
 
-// export default connect(undefined, mapDispatchToProps)(withStyles(styles, { withTheme: true })(LoginView));
-export default withStyles(styles, { withTheme: true })(LoginView);
+export default connect(undefined, mapDispatchToProps)(withStyles(styles, { withTheme: true })(LoginView));
+// export default withStyles(styles, { withTheme: true })(LoginView);

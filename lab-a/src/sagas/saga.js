@@ -40,7 +40,9 @@ export default function* root() {
 ///// login 더미작업 vuex 의 mutations?
 function* loginSaga() {
   try {
-    const { data } = yield axios.get("/boards"); // test
+    // const { data } = yield axios.get("/boards"); // test
+    const { data } = {data: {id: 'test', password: '123'}}
+    console.log('loginRoot')
     yield put(actions.token(data));
   } catch (error) {
     yield put(actions.logout(error.response));
