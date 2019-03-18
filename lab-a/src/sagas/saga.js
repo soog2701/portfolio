@@ -1,7 +1,7 @@
 // https://gracefullight.github.io/2017/12/06/Why-redux-saga/
 // saga는 action을 listen(watch)한다.
-
-import { call, spawn, put, takeEvery } from "redux-saga/effects";
+import { runSaga } from 'redux-saga'
+import { all, call, spawn, put, select, takeEvery } from "redux-saga/effects";
 import * as actions from "../actions";
 import axios from "axios";
 
@@ -31,39 +31,38 @@ function* watchBoard() {
 
 // 모든 listener(watcher)를 하나로 묶어준다.
 // rootReducer에 묶어주는 그것과 같다고 보면 된다.
-export default function* root() {
+export function* root() {
   yield spawn(watchBoard);
 }
 
 // action => saga => action => reducer 로 연결되는 saga가 완성
 
 ///// login 더미작업 vuex 의 mutations?
-function* loginSaga() {
+function* loginSaga(dispatch) {
   try {
     // const { data } = yield axios.get("/boards"); // test
     const { data } = {data: {id: 'test', password: '123'}}
-    console.log('loginRoot')
-    yield put(actions.token(data));
+    
+    // yield put(actions.login(data));
+    const products = yield call(actions.login(data))
+    dispatch({ type: 'LOGIN', products })
+
   } catch (error) {
     yield put(actions.logout(error.response));
   }
 }
 
 function* watchLogin() {
-  yield takeEvery(types.TOKEN, loginSaga);
+  let s = yield select()
+  console.log('state', s)
+  yield takeEvery(types.LOGIN, loginSaga);
 }
 
-export function* loginRoot() {
-  yield spawn(watchLogin);
+export default function* loginRoot() {
+  // yield spawn(watchLogin);
+  yield all([
+    loginSaga(),
+    watchLogin()
+  ])
 }
 
-// const someAction = createAction('some action')
-
-// function* someSaga() {
-//   // make some async staff
-// }
-
-// export default function* saga() {
-//   yield takeLatest(someAction.getType(), someSaga)
-//   // and for each action the same staff ...
-// }

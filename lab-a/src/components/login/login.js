@@ -51,7 +51,10 @@ class LoginView extends React.Component {
         console.log(this.props)
         console.log(this.context)
         // this.props.onLogin({id: 'test', password: '123'})
+        // const { dispatch } = this.props;
+        
         this.props.onLogin()
+        
         // console.log(store.getState())
     };
     render() {
@@ -90,8 +93,8 @@ class LoginView extends React.Component {
 }
 let mapDispatchToProps = (dispatch) => {
     return {
-        onLogin: () => dispatch(login), // => error
-        onLogout: () => dispatch(logout), // => error
+        onLogin: () => login, // => error dispatch(login)
+        onLogout: () => logout // => error  dispatch(logout)
     }
 }
 LoginView.propTypes = {
@@ -99,5 +102,7 @@ LoginView.propTypes = {
     theme: PropTypes.object.isRequired,
 };
 
-export default connect(undefined, mapDispatchToProps)(withStyles(styles, { withTheme: true })(LoginView));
+// export default connect(undefined, mapDispatchToProps)(withStyles(styles, { withTheme: true })(LoginView));
+// (mapStateToProps, actions, Component) 순서
+export default connect(state => ({ id: state.id }), mapDispatchToProps)(withStyles(styles, { withTheme: true })(LoginView));
 // export default withStyles(styles, { withTheme: true })(LoginView);
