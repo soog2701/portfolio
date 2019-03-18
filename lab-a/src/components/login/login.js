@@ -53,7 +53,7 @@ class LoginView extends React.Component {
         // this.props.onLogin({id: 'test', password: '123'})
         // const { dispatch } = this.props;
         
-        this.props.onLogin()
+        this.props.onLogin({user:{id: 'test', password: '123'}})
         
         // console.log(store.getState())
     };

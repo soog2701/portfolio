@@ -45,6 +45,7 @@ function* loginSaga(dispatch) {
     
     // yield put(actions.login(data));
     const products = yield call(actions.login(data))
+    
     dispatch({ type: 'LOGIN', products })
 
   } catch (error) {
