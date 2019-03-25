@@ -1,7 +1,7 @@
 // https://gracefullight.github.io/2017/12/06/Why-redux-saga/
 // saga는 action을 listen(watch)한다.
 import { runSaga } from 'redux-saga'
-import { all, call, spawn, put, select, takeEvery } from "redux-saga/effects";
+import { all, call, take, spawn, put, select, takeEvery, takeLatest } from "redux-saga/effects";
 import * as actions from "../actions";
 import axios from "axios";
 
@@ -42,27 +42,32 @@ function* loginSaga(dispatch) {
   try {
     // const { data } = yield axios.get("/boards"); // test
     const { data } = {data: {id: 'test', password: '123'}}
-    
+    const json = yield fetch('https://newsapi.org/v1/articles?source= cnn&apiKey=c39a26d9c12f48dba2a5c00e35684ecc')
+        .then(response => response.json())
+    console.log(json)
     // yield put(actions.login(data));
-    const products = yield call(actions.login(data))
+    yield put({ type: "LOGIN", user: data });
+    // const products = yield take(actions.login(data))
     
-    dispatch({ type: 'LOGIN', products })
+    // dispatch({ type: 'LOGIN', products })
 
   } catch (error) {
     yield put(actions.logout(error.response));
   }
 }
 
+
 function* watchLogin() {
   let s = yield select()
   console.log('state', s)
-  yield takeEvery(types.LOGIN, loginSaga);
+  // yield takeEvery(types.LOGIN, loginSaga);
+  yield takeLatest(types.LOGIN, loginSaga);
 }
 
 export default function* loginRoot() {
   // yield spawn(watchLogin);
   yield all([
-    loginSaga(),
+    // loginSaga(),
     watchLogin()
   ])
 }

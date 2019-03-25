@@ -30,7 +30,7 @@ const INITIAL_STATE = {
 // };
 // vuex 의 getters?
 // const setStateLogin = (state = INITIAL_STATE, { type, payload, error }) => {
-export default (state = INITIAL_STATE, { type, payload, error }) => {
+export default (state = {}, { type, payload, error }) => {
     switch (type) {
         case types.TOKEN:
             return {
@@ -43,7 +43,8 @@ export default (state = INITIAL_STATE, { type, payload, error }) => {
                 // user: payload,
                 // showError: true,
                 // error
-                state: payload
+                ...state,
+                user: payload
             };
         case types.LOGOUT:
             return {

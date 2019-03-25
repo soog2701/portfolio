@@ -14,7 +14,7 @@ import Button from '@material-ui/core/Button';
 import Fab from '@material-ui/core/Fab';
 import Icon from '@material-ui/core/Icon';
 
-
+import { bindActionCreators } from "redux";
 import { login, logout } from '../../actions'
 
 const styles = theme => ({
@@ -53,9 +53,10 @@ class LoginView extends React.Component {
         // this.props.onLogin({id: 'test', password: '123'})
         // const { dispatch } = this.props;
         
-        this.props.onLogin({user:{id: 'test', password: '123'}})
+        // this.props.onLogin({user:{id: 'test', password: '123'}})
         
         // console.log(store.getState())
+        return login
     };
     render() {
         const { classes, theme } = this.props;
@@ -91,18 +92,23 @@ class LoginView extends React.Component {
         )
     }
 }
-let mapDispatchToProps = (dispatch) => {
-    return {
-        onLogin: () => login, // => error dispatch(login)
-        onLogout: () => logout // => error  dispatch(logout)
-    }
-}
+// let mapDispatchToProps = (dispatch) => {
+//     return {
+//         onLogin: () => bindActionCreators({ login }, dispatch), // dispatch({ type: 'LOGIN' }), // login, // => error dispatch(login)
+//         onLogout: () => logout // => error  dispatch(logout)
+//     }
+// }
+const mapStateToProps = (state) => ({
+    user:{id: state.id, password: state.password}
+})
 LoginView.propTypes = {
     classes: PropTypes.object.isRequired,
     theme: PropTypes.object.isRequired,
 };
-
+const mapDispatchToProps = {
+    LOGIN: login,
+};
 // export default connect(undefined, mapDispatchToProps)(withStyles(styles, { withTheme: true })(LoginView));
 // (mapStateToProps, actions, Component) 순서
-export default connect(state => ({ id: state.id }), mapDispatchToProps)(withStyles(styles, { withTheme: true })(LoginView));
+export default connect(null, mapDispatchToProps)(withStyles(styles, { withTheme: true })(LoginView));
 // export default withStyles(styles, { withTheme: true })(LoginView);
