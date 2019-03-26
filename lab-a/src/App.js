@@ -6,6 +6,9 @@ import saga from './sagas/saga.js'
 import Main from './layouts/main'
 import { sagaMiddleware } from './middleware'
 
+// run the saga
+sagaMiddleware.run(saga);
+
 const App = () => (
   <Provider store={store}>
     <Main />
@@ -13,4 +16,4 @@ const App = () => (
 )
 export default App
 
-sagaMiddleware.run(saga)
+// sagaMiddleware.run(saga)

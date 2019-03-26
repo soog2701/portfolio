@@ -5,27 +5,22 @@ import { reducer as formReducer } from 'redux-form'
 import reducers from './reducers'
 import middleware from './middleware'
 
-const loggerMiddleware = store => next => action => {
-    // 현재 스토어 상태값 기록
-    console.log('현재 상태', store.getState());
-    // 액션 기록
-    console.log('액션', action);
+// import {routerMiddleware} from 'react-router-redux';
 
-    // 액션을 다음 미들웨어, 혹은 리듀서로 넘김
-    const result = next(action);
-
-    // 액션 처리 후의 스토어 상태 기록
-    console.log('다음 상태', store.getState());
-    console.log('\n'); // 기록 구분을 위한 비어있는 줄 프린트
-
-    return result; // 여기서 반환하는 값은 store.dispatch(ACTION_TYPE) 했을때의 결과로 설정됩니다
-}
-// const store = createStore(modules, applyMiddleware(loggerMiddleware))
-export default createStore(
+// const initialState = {};
+// const store = configureStore(initialState, browserHistory);
+// const middlewares = [sagaMiddleware, routerMiddleware(history)];
+const store = createStore(
     combineReducers({
         ...reducers,
         form: formReducer
-    }),
-    // composeWithDevTools(applyMiddleware(loggerMiddleware))
+    }),    
     composeWithDevTools(applyMiddleware(...middleware))
 )
+// console.log(store.getState()); /// 무한루프...
+// 상태가 바뀔때마다 기록합니다.
+
+// 액션들을 보냅니다.
+// store.dispatch(Login(true, 'user1', 'token1'));
+
+export default store

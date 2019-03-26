@@ -42,11 +42,11 @@ function* loginSaga(dispatch) {
   try {
     // const { data } = yield axios.get("/boards"); // test
     const { data } = {data: {id: 'test', password: '123'}}
-    const json = yield fetch('https://newsapi.org/v1/articles?source= cnn&apiKey=c39a26d9c12f48dba2a5c00e35684ecc')
-        .then(response => response.json())
-    console.log(json)
-    // yield put(actions.login(data));
-    yield put({ type: "LOGIN", user: data });
+    // const json = yield fetch('https://newsapi.org/v1/articles?source= cnn&apiKey=c39a26d9c12f48dba2a5c00e35684ecc')
+    //     .then(response => response.json())
+    // console.log(json)
+    // yield put(actions.login(data));  /// 무한루프...
+    // yield put({ type: "LOGIN", user: data}); //
     // const products = yield take(actions.login(data))
     
     // dispatch({ type: 'LOGIN', products })
@@ -67,7 +67,7 @@ function* watchLogin() {
 export default function* loginRoot() {
   // yield spawn(watchLogin);
   yield all([
-    // loginSaga(),
+    loginSaga(),
     watchLogin()
   ])
 }

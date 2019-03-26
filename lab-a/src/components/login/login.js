@@ -15,7 +15,8 @@ import Fab from '@material-ui/core/Fab';
 import Icon from '@material-ui/core/Icon';
 
 import { bindActionCreators } from "redux";
-import { login, logout } from '../../actions'
+import { login, logout, token } from '../../actions'
+// import store from '../../store'
 
 const styles = theme => ({
     root: {
@@ -54,9 +55,11 @@ class LoginView extends React.Component {
         // const { dispatch } = this.props;
         
         // this.props.onLogin({user:{id: 'test', password: '123'}})
-        
+        let user = {payload:{id: 'test2', password: '123'}}
         // console.log(store.getState())
-        return login
+        // return login(user)
+        // store.dispatch(login(user));
+        this.props.onLogin(user)
     };
     render() {
         const { classes, theme } = this.props;
@@ -105,8 +108,13 @@ LoginView.propTypes = {
     classes: PropTypes.object.isRequired,
     theme: PropTypes.object.isRequired,
 };
-const mapDispatchToProps = {
-    LOGIN: login,
+// const mapDispatchToProps = {
+//     LOGIN: login,
+// };
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onLogin: (user) => dispatch(token(user)), // login
+    }
 };
 // export default connect(undefined, mapDispatchToProps)(withStyles(styles, { withTheme: true })(LoginView));
 // (mapStateToProps, actions, Component) 순서
