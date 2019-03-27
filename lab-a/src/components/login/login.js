@@ -4,21 +4,21 @@ import { connect } from 'react-redux'
 
 import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Input from '@material-ui/core/Input';
-import InputLabel from '@material-ui/core/InputLabel';
-import InputAdornment from '@material-ui/core/InputAdornment';
+// import Input from '@material-ui/core/Input';
+// import InputLabel from '@material-ui/core/InputLabel';
+// import InputAdornment from '@material-ui/core/InputAdornment';
 import FormControl from '@material-ui/core/FormControl';
 import TextField from '@material-ui/core/TextField';
 import AccountCircle from '@material-ui/icons/AccountCircle';
 import Button from '@material-ui/core/Button';
-import Fab from '@material-ui/core/Fab';
-import Icon from '@material-ui/core/Icon';
+// import Fab from '@material-ui/core/Fab';
+// import Icon from '@material-ui/core/Icon';
 
-import { bindActionCreators } from "redux";
-import { login, logout, token } from '../../actions'
+// import { bindActionCreators } from "redux";
+import { login } from '../../actions' //, logout, token
 // import store from '../../store'
 
-const styles = theme => ({
+const styles = () => ({ // arg1: theme
     root: {
         flexGrow: 1,
     },
@@ -51,18 +51,12 @@ class LoginView extends React.Component {
         console.log('login')
         console.log(this.props)
         console.log(this.context)
-        // this.props.onLogin({id: 'test', password: '123'})
-        // const { dispatch } = this.props;
-        
-        // this.props.onLogin({user:{id: 'test', password: '123'}})
         let user = {payload:{id: 'test2', password: '123'}}
-        // console.log(store.getState())
-        // return login(user)
-        // store.dispatch(login(user));
-        this.props.onLogin(user)
+        
+        return this.props.onLogin(user)
     };
     render() {
-        const { classes, theme } = this.props;
+        const { classes } = this.props; // theme
         return (
             <div className={classes.root}>
                 <Grid container item xs={12} justify='center'>
@@ -95,27 +89,20 @@ class LoginView extends React.Component {
         )
     }
 }
-// let mapDispatchToProps = (dispatch) => {
-//     return {
-//         onLogin: () => bindActionCreators({ login }, dispatch), // dispatch({ type: 'LOGIN' }), // login, // => error dispatch(login)
-//         onLogout: () => logout // => error  dispatch(logout)
-//     }
-// }
-const mapStateToProps = (state) => ({
-    user:{id: state.id, password: state.password}
-})
+
+// const mapStateToProps = (state) => ({
+//     user:{id: state.id, password: state.password}
+// })
 LoginView.propTypes = {
     classes: PropTypes.object.isRequired,
     theme: PropTypes.object.isRequired,
 };
-// const mapDispatchToProps = {
-//     LOGIN: login,
-// };
-const mapDispatchToProps = (dispatch) => {
-    return {
-        onLogin: (user) => dispatch(token(user)), // login
+const mapDispatchToProps = { // => mapDispatchToProps는 함수가 아니고 object
+    onLogin (user) {
+        return login(user)
     }
 };
+
 // export default connect(undefined, mapDispatchToProps)(withStyles(styles, { withTheme: true })(LoginView));
 // (mapStateToProps, actions, Component) 순서
 export default connect(null, mapDispatchToProps)(withStyles(styles, { withTheme: true })(LoginView));

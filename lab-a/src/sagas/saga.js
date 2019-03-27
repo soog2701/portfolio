@@ -1,7 +1,7 @@
 // https://gracefullight.github.io/2017/12/06/Why-redux-saga/
 // saga는 action을 listen(watch)한다.
-import { runSaga } from 'redux-saga'
-import { all, call, take, spawn, put, select, takeEvery, takeLatest } from "redux-saga/effects";
+// import { runSaga } from 'redux-saga'
+import { all, spawn, put, select, takeEvery, takeLatest } from "redux-saga/effects"; // call, take, , fork
 import * as actions from "../actions";
 import axios from "axios";
 
@@ -36,38 +36,33 @@ export function* root() {
 }
 
 // action => saga => action => reducer 로 연결되는 saga가 완성
-
+const delay = (ms) => new Promise(res => setTimeout(res, ms))
 ///// login 더미작업 vuex 의 mutations?
+
 function* loginSaga(dispatch) {
   try {
-    // const { data } = yield axios.get("/boards"); // test
-    const { data } = {data: {id: 'test', password: '123'}}
-    // const json = yield fetch('https://newsapi.org/v1/articles?source= cnn&apiKey=c39a26d9c12f48dba2a5c00e35684ecc')
-    //     .then(response => response.json())
-    // console.log(json)
-    // yield put(actions.login(data));  /// 무한루프...
-    // yield put({ type: "LOGIN", user: data}); //
-    // const products = yield take(actions.login(data))
-    
-    // dispatch({ type: 'LOGIN', products })
-
-  } catch (error) {
-    yield put(actions.logout(error.response));
+    // let token = yield call(delay, 1000)
+    // yield call(delay, 1000) // call(fn, arg1, arg2)
+    yield delay(1000)
+    let token = {payload:{key: 'testkey'}}
+    yield put({type: 'TOKEN'}, token) //, token LOGIN TOKEN login success //  {PUT: {type: 'TOKEN'}}
+    // return token
+  } catch(error) {
+    yield put({type: 'LOGOUT', error}) // login error
   }
 }
-
 
 function* watchLogin() {
   let s = yield select()
   console.log('state', s)
   // yield takeEvery(types.LOGIN, loginSaga);
-  yield takeLatest(types.LOGIN, loginSaga);
+  yield takeLatest('LOGIN', loginSaga);
 }
 
 export default function* loginRoot() {
   // yield spawn(watchLogin);
   yield all([
-    loginSaga(),
+    // loginSaga(),
     watchLogin()
   ])
 }

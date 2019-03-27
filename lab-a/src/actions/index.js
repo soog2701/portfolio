@@ -23,9 +23,9 @@ export const fetchBoardsRejected = error => ({
 });
 
 // vuex 의 actions?
-export const token = user => ({
+export const token = key => ({
     type: types.TOKEN,
-    payload: user
+    payload: {key: key}
 })
 export const login = user => ({
     type: types.LOGIN,

@@ -29,18 +29,18 @@ const INITIAL_STATE = {
 //     }
 // };
 
-function counter(state = 0, action) {
-    switch (action.type) {
-        case 'INCREMENT':
-            return state + 1
-        case 'INCREMENT_IF_ODD':
-            return (state % 2 !== 0) ? state + 1 : state
-        case 'DECREMENT':
-            return state - 1
-        default:
-            return state
-        }
-    }
+// function counter(state = 0, action) {
+//     switch (action.type) {
+//         case 'INCREMENT':
+//             return state + 1
+//         case 'INCREMENT_IF_ODD':
+//             return (state % 2 !== 0) ? state + 1 : state
+//         case 'DECREMENT':
+//             return state - 1
+//         default:
+//             return state
+//         }
+//     }
 // vuex 의 getters?
 // const setStateLogin = (state = INITIAL_STATE, { type, payload, error }) => {
 export default (state = INITIAL_STATE, { type, payload, error }) => {
