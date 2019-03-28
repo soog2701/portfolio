@@ -43,7 +43,7 @@ const styles = theme => ({
         transition: theme.transitions.create(['margin', 'width'], {
             easing: theme.transitions.easing.sharp,
             duration: theme.transitions.duration.leavingScreen,
-        }),
+        })
     },
     appBarShift: {
         width: `calc(100% - ${drawerWidth}px)`,
@@ -93,99 +93,99 @@ const styles = theme => ({
 });
 
 class Main extends Component {
-  state = {
-    open: false,
-  };
-  handleDrawerOpen = () => {
-    this.setState({ open: true });
-  };
-  handleDrawerClose = () => {
-      this.setState({ open: false });
-  };
-  componentDidMount () {
-      // let s = movie()
-      // // 비동기 
-      // console.log(s)
-  }
-  render() {
-    const { classes, theme } = this.props;
-    const { open } = this.state;
-    const drawer = (
-      <div>
-        <Divider />
-        <List>
-        {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
+    state = {
+        open: false,
+    };
+    handleDrawerOpen = () => {
+        this.setState({ open: true });
+    };
+    handleDrawerClose = () => {
+        this.setState({ open: false });
+    };
+    componentDidMount () {
+        // let s = movie()
+        // // 비동기 
+        // console.log(s)
+    }
+    render() {
+        const { classes, theme } = this.props;
+        const { open } = this.state;
+        const drawer = (
+        <div>
+            <Divider />
+            <List>
+            {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+                <ListItem button key={text}>
+                    <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                    <ListItemText primary={text} />
+                </ListItem>
+            ))}
+            </List>
+            <Divider />
+            <List>
+            {['All mail', 'Trash', 'Spam'].map((text, index) => (
+                <ListItem button key={text}>
                 <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
                 <ListItemText primary={text} />
-            </ListItem>
-        ))}
-        </List>
-        <Divider />
-        <List>
-        {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-            </ListItem>
-        ))}
-        </List>
-      </div>
-    );
-    return (
-      <div className={classes.root}>
-                <CssBaseline />
-                <AppBar position="fixed" 
-                    className={classNames(classes.appBar, {
-                        [classes.appBarShift]: open,
-                    })}
-                >
-                    <Toolbar disableGutters={!open}>
-                        <IconButton  color="inherit"
-                            aria-label="Open drawer"
-                            onClick={this.handleDrawerOpen}
-                            className={classNames(classes.menuButton, open && classes.hide)}
-                        >
-                            <MenuIcon />
-                        </IconButton>
-                        <Typography variant="h6" color="inherit" noWrap>
-                            Movie Chart
-                        </Typography>
-                    </Toolbar>
-                </AppBar>
-                <Drawer
-                    className={classes.drawer}
-                    variant="persistent"
-                    anchor="left"
-                    open={open}
-                    classes={{
-                        paper: classes.drawerPaper,
-                    }}
-                >
-                    <div className={classes.drawerHeader}>
-                        <IconButton onClick={this.handleDrawerClose}>
-                            {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-                        </IconButton>
-                    </div>
-                    {drawer}
-                </Drawer>
-                <main 
-                    className={classNames(classes.content, {
-                        [classes.contentShift]: open,
-                    })}
-                >
-                    <div className={classes.drawerHeader} />
-                    <div className={classes.contents} >
-                        <RouterView />
-                    </div>
-                </main>
-            </div>
-    );
-  }
+                </ListItem>
+            ))}
+            </List>
+        </div>
+        );
+        return (
+        <div className={classes.root} >
+                    <CssBaseline />
+                    <AppBar position="fixed" 
+                        className={classNames(classes.appBar, {
+                            [classes.appBarShift]: open,
+                        })}
+                    >
+                        <Toolbar disableGutters={!open}>
+                            <IconButton  color="inherit"
+                                aria-label="Open drawer"
+                                onClick={this.handleDrawerOpen}
+                                className={classNames(classes.menuButton, open && classes.hide)}
+                            >
+                                <MenuIcon />
+                            </IconButton>
+                            <Typography variant="h6" color="inherit" noWrap>
+                                Movie Chart
+                            </Typography>
+                        </Toolbar>
+                    </AppBar>
+                    <Drawer
+                        className={classes.drawer}
+                        variant="persistent"
+                        anchor="left"
+                        open={open}
+                        classes={{
+                            paper: classes.drawerPaper,
+                        }}
+                    >
+                        <div className={classes.drawerHeader}>
+                            <IconButton onClick={this.handleDrawerClose}>
+                                {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+                            </IconButton>
+                        </div>
+                        {drawer}
+                    </Drawer>
+                    <main 
+                        className={classNames(classes.content, {
+                            [classes.contentShift]: open,
+                        })}
+                    >
+                        <div className={classes.drawerHeader} />
+                        <div className={classes.contents} >
+                            <RouterView />
+                        </div>
+                    </main>
+                </div>
+        );
+    }
 }
 Main.propTypes = {
-  classes: PropTypes.object.isRequired,
-  container: PropTypes.object,
-  theme: PropTypes.object.isRequired,
+    classes: PropTypes.object.isRequired,
+    container: PropTypes.object,
+    theme: PropTypes.object.isRequired,
 };
 export default withStyles(styles, { withTheme: true })(Main);
