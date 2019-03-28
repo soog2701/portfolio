@@ -3,7 +3,7 @@ import { Provider } from 'react-redux'
 
 import store from './store'
 import saga from './sagas/saga.js'
-import Main from './layouts/main'
+import Root from './layouts/root'
 import { sagaMiddleware } from './middleware'
 import { MuiThemeProvider } from '@material-ui/core/styles';
 // Theme
@@ -15,7 +15,7 @@ sagaMiddleware.run(saga);
 const App = () => (
   <Provider store={store} >
     <MuiThemeProvider theme={theme} >
-      <Main />
+      <Root />
     </MuiThemeProvider>
   </Provider>
 )

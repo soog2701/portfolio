@@ -92,7 +92,7 @@ const styles = theme => ({
     },
 });
 
-class Main extends Component {
+class Root extends Component {
     state = {
         open: false,
     };
@@ -183,9 +183,9 @@ class Main extends Component {
         );
     }
 }
-Main.propTypes = {
+Root.propTypes = {
     classes: PropTypes.object.isRequired,
     container: PropTypes.object,
     theme: PropTypes.object.isRequired,
 };
-export default withStyles(styles, { withTheme: true })(Main);
+export default withStyles(styles, { withTheme: true })(Root);

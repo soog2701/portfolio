@@ -14,13 +14,14 @@ import {
 
 import Login from './../components/login/login';
 import List from './../components/page/card';
-
+import Main from './../components/main';
 // const supportsHistory = 'pushState' in window.history
 
 const RouterView = ({ store }) => (
     <BrowserRouter>
         <Switch>
-            <Route exact path="/" component={Login} />
+            <Route exact path="/" component={Main} />
+            <Route path="/login" component={Login} />
             <Route path="/list" component={List} />
         </Switch>
     </BrowserRouter>
