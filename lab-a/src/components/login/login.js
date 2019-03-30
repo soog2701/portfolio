@@ -58,7 +58,7 @@ class LoginView extends React.Component {
     render() {
         const { classes } = this.props; // theme
         return (
-            <div className={classes.root}>
+            <div className={`${classes.root} ${classes.margin}`}>
                 <Grid container item xs={12} justify='center'>
                     <FormControl>
                         <Grid container spacing={8} justify='center'>

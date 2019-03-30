@@ -2,7 +2,7 @@ import React from 'react';
 // import { Provider } from 'react-redux';
 // import { Router, browserHistory } from 'react-router';
 import {
-    BrowserRouter,
+    // BrowserRouter,
     Route,
     // Link,
     // Redirect,
@@ -18,13 +18,15 @@ import Main from './../components/main';
 // const supportsHistory = 'pushState' in window.history
 
 const RouterView = ({ store }) => (
-    <BrowserRouter>
+    // <BrowserRouter>
+    <div>
         <Switch>
             <Route exact path="/" component={Main} />
             <Route path="/login" component={Login} />
             <Route path="/list" component={List} />
         </Switch>
-    </BrowserRouter>
+    </div>    
+    // </BrowserRouter>
 );
 
 // Root.propTypes = {

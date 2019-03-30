@@ -15,7 +15,7 @@ const styles = theme => ({
 
 class Main extends React.Component {
     state = {
-        spacing: '0',
+        spacing: 0,
     };
     render() {
         const { classes } = this.props;

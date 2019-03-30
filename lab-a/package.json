@@ -5,8 +5,10 @@
   "dependencies": {
     "@material-ui/core": "^3.9.2",
     "@material-ui/icons": "^3.0.2",
+    "@material-ui/styles": "^4.0.0-alpha.5",
     "axios": "^0.18.0",
     "node-sass": "^4.11.0",
+    "query-string": "^6.4.2",
     "react": "^16.8.3",
     "react-app-polyfill": "^0.2.1",
     "react-dom": "^16.8.3",

@@ -21,7 +21,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Typography from '@material-ui/core/Typography';
-
+import Button from '@material-ui/core/Button';
 // tab
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -40,15 +40,18 @@ import ShoppingBasket from '@material-ui/icons/ShoppingBasket';
 import ThumbDown from '@material-ui/icons/ThumbDown';
 import ThumbUp from '@material-ui/icons/ThumbUp';
 
-
+import { unstable_Box as Box } from '@material-ui/core/Box';
 import RouterView from '../router/index.js';
+import { withRouter, Link } from 'react-router-dom';
+import { NONAME } from 'dns';
 
 const drawerWidth = 240;
 
 const styles = theme => ({
     root: {
         // display: 'flex',
-        flexGrow: 1,
+        // flexGrow: 1,
+        width: '100%',
     },
     drawer: {
         width: drawerWidth,
@@ -105,27 +108,31 @@ const styles = theme => ({
     contents: {
         flexGrow: 1,
     },
+    apptab: { // app tab
+        // display: 'flex',
+        // flexDirection: 'row',
+        backgroundColor: theme.palette.background.paper,
+    },
+    apptabItem: {
+        // flexDirection: 'row',
+    },
+    tabConts: {
+        marginTop: '72px',
+        // flexGrow: 1,
+        // flexDirection: 'column',
+    },
+    links: {
+        textDecoration: 'none',
+        color: theme.palette.primary.contrastText
+    }
 });
-
-function TabContainer(props) {
-    return (
-        <Typography component="div" style={{ padding: 8 * 3 }}>
-            {props.children}
-        </Typography>
-    );
-}
 
 class Root extends Component {
     state = {
         open: false,
         value: 0,
     };
-    handleDrawerOpen = () => {
-        this.setState({ open: true });
-    };
-    handleDrawerClose = () => {
-        this.setState({ open: false });
-    };
+    
     componentDidMount () {
         // let s = movie()
         // // 비동기 
@@ -136,97 +143,37 @@ class Root extends Component {
     };
     
     render() {
-        const { classes, theme } = this.props;
-        const { open } = this.state;
+        const { classes, history } = this.props;
         const { value } = this.state;
-        const drawer = (
-        <div>
-            <Divider />
-            <List>
-            {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-                <ListItem button key={text}>
-                    <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                    <ListItemText primary={text} />
-                </ListItem>
-            ))}
-            </List>
-            <Divider />
-            <List>
-            {['All mail', 'Trash', 'Spam'].map((text, index) => (
-                <ListItem button key={text}>
-                <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-                <ListItemText primary={text} />
-                </ListItem>
-            ))}
-            </List>
-        </div>
-        );
+        
         return (
         <div className={classes.root}>
             <CssBaseline />
-            {/* <AppBar position="fixed" 
-                className={classNames(classes.appBar, {
-                    [classes.appBarShift]: open,
-                })}
-            >
-                <Toolbar disableGutters={!open}>
-                    <IconButton  color="inherit"
-                        aria-label="Open drawer"
-                        onClick={this.handleDrawerOpen}
-                        className={classNames(classes.menuButton, open && classes.hide)}
-                    >
-                        <MenuIcon />
-                    </IconButton>
-                    <Typography variant="h6" color="inherit" noWrap>
-                        Movie Chart
-                    </Typography>
-                </Toolbar>
-            </AppBar> */}
-            <AppBar position="static" color="default">
-                <Tabs
-                    value={value}
-                    onChange={this.handleChange}
-                    variant="scrollable"
-                    scrollButtons="on"
-                    indicatorColor="primary"
-                    textColor="primary"
-                >
-                    <Tab label="Item One" icon={<PhoneIcon />} />
-                    <Tab label="Item Two" icon={<FavoriteIcon />} />
-                    <Tab label="Item Three" icon={<PersonPinIcon />} />
-                    <Tab label="Item Four" icon={<HelpIcon />} />
-                    <Tab label="Item Five" icon={<ShoppingBasket />} />
-                    <Tab label="Item Six" icon={<ThumbDown />} />
-                    <Tab label="Item Seven" icon={<ThumbUp />} />
-                </Tabs>
+            <AppBar color="primary" >
+                <Box display="flex" flexDirection="row" p={0}>
+                    <Box p={0} flexGrow={1}>
+                        <Tabs
+                            value={value}
+                            onChange={this.handleChange}
+                            variant="scrollable" scrollButtons="off"
+                        >
+                            <Tab label="home" icon={<PhoneIcon />} onClick={() => {history.push('/')}} />
+                            <Tab label="List" icon={<FavoriteIcon />} />
+                            <Tab label="Item Three" icon={<PersonPinIcon />} />
+                            <Tab label="Item Four" icon={<HelpIcon />} />
+                            <Tab label="Item Five" icon={<ShoppingBasket />} />
+                            <Tab label="Item Six" icon={<ThumbDown />} />
+                            <Tab label="Item Seven" icon={<ThumbUp />} />
+                        </Tabs>
+                    </Box>
+                    <Box p={0} mr={2} display="flex" alignItems="center">
+                        <Button color="inherit">
+                            <Link className={classes.links} to="/login" >Login</Link>
+                        </Button>
+                    </Box>
+                </Box>
             </AppBar>
-            <Drawer
-                className={classes.drawer}
-                variant="persistent"
-                anchor="left"
-                open={open}
-                classes={{
-                    paper: classes.drawerPaper,
-                }}
-            >
-                <div className={classes.drawerHeader}>
-                    <IconButton onClick={this.handleDrawerClose}>
-                        {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
-                    </IconButton>
-                </div>
-                {drawer}
-            </Drawer>
-            <Grid container className={classes.root} spacing={0}>
-                <Grid item xs={12}>
-                    {value === 0 && <TabContainer>Item One</TabContainer>}
-                    {value === 1 && <TabContainer>Item Two</TabContainer>}
-                    {value === 2 && <TabContainer>Item Three</TabContainer>}
-                    {value === 3 && <TabContainer>Item Four</TabContainer>}
-                    {value === 4 && <TabContainer>Item Five</TabContainer>}
-                    {value === 5 && <TabContainer>Item Six</TabContainer>}
-                    {value === 6 && <TabContainer>Item Seven</TabContainer>}
-                    
-                </Grid>
+            <Grid container className={classes.tabConts} spacing={0}>
                 <Grid item xs={12}>
                     {/* <main 
                         className={classNames(classes.content, {
@@ -249,5 +196,6 @@ Root.propTypes = {
     classes: PropTypes.object.isRequired,
     container: PropTypes.object,
     theme: PropTypes.object.isRequired,
+    history: PropTypes.object.isRequired
 };
-export default withStyles(styles, { withTheme: true })(Root);
+export default withRouter(withStyles(styles, { withTheme: true })(Root));

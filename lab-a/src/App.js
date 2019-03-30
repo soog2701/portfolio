@@ -6,6 +6,8 @@ import saga from './sagas/saga.js'
 import Root from './layouts/root'
 import { sagaMiddleware } from './middleware'
 import { MuiThemeProvider } from '@material-ui/core/styles';
+import { BrowserRouter } from "react-router-dom";
+
 // Theme
 import {theme} from './layouts/theme'
 
@@ -14,9 +16,11 @@ sagaMiddleware.run(saga);
 
 const App = () => (
   <Provider store={store} >
-    <MuiThemeProvider theme={theme} >
-      <Root />
-    </MuiThemeProvider>
+    <BrowserRouter>
+      <MuiThemeProvider theme={theme} >
+        <Root />
+      </MuiThemeProvider>
+    </BrowserRouter>
   </Provider>
 )
 export default App
