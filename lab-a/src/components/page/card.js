@@ -12,6 +12,9 @@ import SkipNextIcon from '@material-ui/icons/SkipNext';
 import Grid from '@material-ui/core/Grid';
 
 const styles = theme => ({
+    root:{
+        marginTop: '20px'
+    },
     card: {
         display: 'flex',
     },
@@ -80,7 +83,7 @@ class MediaControlCard extends React.Component {
         const { classes, theme } = this.props;
         // const { spacing } = this.state;
         return (
-            <Grid container spacing={24}>
+            <Grid container spacing={0} className={classes.root}>
                 <Grid item xs={3}>
                     {this.createList(classes, theme)}
                 </Grid>
