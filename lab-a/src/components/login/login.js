@@ -15,7 +15,7 @@ import Button from '@material-ui/core/Button';
 // import Icon from '@material-ui/core/Icon';
 
 // import { bindActionCreators } from "redux";
-import { login } from '../../actions' //, logout, token
+import { login, loginRequest } from '../../actions' //, logout, token
 // import store from '../../store'
 
 const styles = () => ({ // arg1: theme
@@ -51,10 +51,14 @@ class LoginView extends React.Component {
         console.log('login')
         console.log(this.props)
         console.log(this.context)
-        let user = {payload:{id: 'test2', password: '123'}}
+        let user = {payload:{id: this.state.id, password: this.state.password}}
         
-        return this.props.onLogin(user)
+        // return this.props.onLogin(user)
+        return this._login(this.state.id, this.state.password)
     };
+    _login (username, password) {
+      this.props.dispatch(loginRequest({username, password}))
+    }
     render() {
         const { classes } = this.props; // theme
         return (
@@ -102,8 +106,13 @@ const mapDispatchToProps = { // => mapDispatchToProps는 함수가 아니고 obj
         return login(user)
     }
 };
-
+function select (state) {
+  return {
+    data: state
+  }
+}
 // export default connect(undefined, mapDispatchToProps)(withStyles(styles, { withTheme: true })(LoginView));
 // (mapStateToProps, actions, Component) 순서
-export default connect(null, mapDispatchToProps)(withStyles(styles, { withTheme: true })(LoginView));
+// null, mapDispatchToProps => select
+export default connect(select)(withStyles(styles, { withTheme: true })(LoginView));
 // export default withStyles(styles, { withTheme: true })(LoginView);

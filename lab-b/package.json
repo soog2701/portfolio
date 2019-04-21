@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "node dev/test.js",
-    "dev": "nodemon --watch dev -e js dev/api.js"
+    "dev": "nodemon --watch dev -e js dev/api.js",
+    "exam": "node practice/algorithm.js"
   },
   "author": "",
   "license": "ISC",

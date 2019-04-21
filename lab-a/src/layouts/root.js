@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 // import logo from './temps/logo.svg';
+import { connect } from 'react-redux'
 import './css/App.scss';
 
 import PropTypes from 'prop-types';
@@ -120,4 +121,11 @@ Root.propTypes = {
     theme: PropTypes.object.isRequired,
     history: PropTypes.object.isRequired
 };
-export default withRouter(withStyles(styles, { withTheme: true })(Root));
+
+function select (state) {
+  return {
+    data: state
+  }
+}
+
+export default connect(select)(withRouter(withStyles(styles, { withTheme: true })(Root)));

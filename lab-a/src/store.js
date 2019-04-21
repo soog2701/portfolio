@@ -11,10 +11,11 @@ import middleware from './middleware'
 // const store = configureStore(initialState, browserHistory);
 // const middlewares = [sagaMiddleware, routerMiddleware(history)];
 const store = createStore(
-    combineReducers({
-        ...reducers,
-        form: formReducer
-    }),    
+    // combineReducers({
+    //     ...reducers,
+    //     form: formReducer
+    // }), 
+    reducers,   
     composeWithDevTools(applyMiddleware(...middleware))
 )
 // console.log(store.getState()); /// 무한루프...

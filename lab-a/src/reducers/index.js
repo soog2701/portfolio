@@ -3,6 +3,7 @@
 // const FETCH_BOARDS_FULFILLED = "FETCH_BOARDS_FULFILLED";
 // const FETCH_BOARDS_REJECTED = "FETCH_BOARDS_REJECTED";
 import * as types from '../type/'
+import auth from '../auth'
 // reducer => store
 // View -> Action -> Dispatcher -> Store(Middleware -> Reducer) -> View
 // state => ui => action => reducer => store => state
@@ -43,7 +44,7 @@ const INITIAL_STATE = {
 //     }
 // vuex 의 getters?
 // const setStateLogin = (state = INITIAL_STATE, { type, payload, error }) => {
-export default (state = INITIAL_STATE, { type, payload, error }) => {
+let reducerold = (state = INITIAL_STATE, { type, payload, error }) => {
     switch (type) {
         case types.TOKEN:
             return {
@@ -77,7 +78,36 @@ export default (state = INITIAL_STATE, { type, payload, error }) => {
     }
 }
 
+let initialState = {
+  formState: {
+    username: '',
+    password: ''
+  },
+  error: '',
+  currentlySending: false,
+  loggedIn: auth.loggedIn()
+}
+// Takes care of changing the application state
+function reducer (state = initialState, action) {
+  switch (action.type) {
+    case types.CHANGE_FORM:
+      return {...state, formState: action.newFormState}
+    case types.SET_AUTH:
+      return {...state, loggedIn: action.newAuthState}
+    case types.SENDING_REQUEST:
+      return {...state, currentlySending: action.sending}
+    case types.REQUEST_ERROR:
+      return {...state, error: action.error}
+    case types.CLEAR_ERROR:
+      return {...state, error: ''}
+    default:
+      return state
+  }
+}
+
 // export default () => ({
 //     counter,
 //     setStateLogin
 // })
+
+export default reducer
