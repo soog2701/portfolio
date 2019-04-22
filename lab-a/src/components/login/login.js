@@ -28,70 +28,65 @@ const styles = () => ({ // arg1: theme
 });
 
 class LoginView extends React.Component {
-    state = {
-        id: 'admin',
-        password: 'admin'
-    };
+  constructor(props) {
+    super(props);
+    console.log(props);
+  }
+  state = {
+      id: 'admin',
+      password: 'admin'
+  };
     // componentWillMount() {
     //     let { dispatch } = this.props;
     //     console.log(this.props)
     // }
-    fakeAuth = {
-        isAuthenticated: false,
-        authenticate(cb) {
-            this.isAuthenticated = true;
-            setTimeout(cb, 100); // fake async
-        },
-        signout(cb) {
-            this.isAuthenticated = false;
-            setTimeout(cb, 100);
-        }
-    };
-    goLogin = () => {
-        console.log('login')
-        console.log(this.props)
-        console.log(this.context)
-        let user = {payload:{id: this.state.id, password: this.state.password}}
-        
-        // return this.props.onLogin(user)
-        return this._login(this.state.id, this.state.password)
-    };
-    _login (username, password) {
-      this.props.dispatch(loginRequest({username, password}))
-    }
-    render() {
-        const { classes } = this.props; // theme
-        return (
-            <div className={`${classes.root} ${classes.margin}`}>
-                <Grid container item xs={12} justify='center'>
-                    <FormControl>
-                        <Grid container spacing={8} justify='center'>
-                            <Grid item>
-                                <AccountCircle />
-                            </Grid>
-                        </Grid>
-                        <Grid container spacing={8} alignItems="flex-end">
-                            <Grid item>
-                                <TextField id="input-id" value={this.state.id} label="Login" />
-                            </Grid>
-                        </Grid>
-                        <Grid container spacing={8} alignItems="flex-end" className={classes.margin} >
-                            <Grid item>
-                                <TextField id="input-password" value={this.state.password} label="Password" type="password" />
-                            </Grid>
-                        </Grid>
-                        <Grid container spacing={8} justify='center'>
-                            <Grid item>
-                                <Button variant="contained" size="small" color="primary" className={classes.margin} onClick={this.goLogin}>
-                                login
-                                </Button>
-                            </Grid>
-                        </Grid>
-                    </FormControl>
-                </Grid>
-            </div>
-        )
-    }
+    
+  goLogin = () => {
+      console.log('login')
+      console.log(this.props)
+      console.log(this.context)
+      let user = {payload:{id: this.state.id, password: this.state.password}}
+      
+      // return this.props.onLogin(user)
+      return this._login(this.state.id, this.state.password)
+  };
+  _login (username, password) {
+    this.props.dispatch(loginRequest({username, password}))
+    console.log('login---------->', this.props.data); // store
+  }
+  render() {
+      const { classes } = this.props; // theme
+      return (
+          <div className={`${classes.root} ${classes.margin}`}>
+              <Grid container item xs={12} justify='center'>
+                  <FormControl>
+                      <Grid container spacing={8} justify='center'>
+                          <Grid item>
+                              <AccountCircle />
+                          </Grid>
+                      </Grid>
+                      <Grid container spacing={8} alignItems="flex-end">
+                          <Grid item>
+                              <TextField id="input-id" value={this.state.id} label="Login" />
+                          </Grid>
+                      </Grid>
+                      <Grid container spacing={8} alignItems="flex-end" className={classes.margin} >
+                          <Grid item>
+                              <TextField id="input-password" value={this.state.password} label="Password" type="password" />
+                          </Grid>
+                      </Grid>
+                      <Grid container spacing={8} justify='center'>
+                          <Grid item>
+                              <Button variant="contained" size="small" color="primary" className={classes.margin} onClick={this.goLogin}>
+                              login
+                              </Button>
+                          </Grid>
+                      </Grid>
+                  </FormControl>
+              </Grid>
+          </div>
+      )
+  }
 }
 
 // const mapStateToProps = (state) => ({
@@ -108,7 +103,7 @@ const mapDispatchToProps = { // => mapDispatchToProps는 함수가 아니고 obj
 };
 function select (state) {
   return {
-    data: state
+    data: state // => store 는 this.props.data 에 저장된다.
   }
 }
 // export default connect(undefined, mapDispatchToProps)(withStyles(styles, { withTheme: true })(LoginView));

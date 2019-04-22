@@ -88,7 +88,7 @@ let initialState = {
   loggedIn: auth.loggedIn()
 }
 // Takes care of changing the application state
-function reducer (state = initialState, action) {
+function reducers (state = initialState, action) {
   switch (action.type) {
     case types.CHANGE_FORM:
       return {...state, formState: action.newFormState}
@@ -110,4 +110,4 @@ function reducer (state = initialState, action) {
 //     setStateLogin
 // })
 
-export default reducer
+export default reducers

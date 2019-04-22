@@ -7,7 +7,7 @@ import axios from "axios";
 import {hashSync} from 'bcryptjs'
 import genSalt from '../auth/salt.js'
 import auth from '../auth/index.js'
-
+import history from './../history';
 //type
 // const FETCH_BOARDS = "FETCH_BOARDS";
 // const FETCH_BOARDS_FULFILLED = "FETCH_BOARDS_FULFILLED";
@@ -60,7 +60,6 @@ function* loginSaga(dispatch) {
 
 function* watchLogin() {
   let s = yield select()
-  console.log('state========', s)
   // yield takeEvery(types.LOGIN, loginSaga);
   yield takeLatest('LOGIN', loginSaga);
 }
@@ -152,13 +151,13 @@ export function * loginFlow () {
       auth: call(authorize, {username, password, isRegistering: false}),
       logout: take(types.LOGOUT)
     })
-
+    console.log('============login===============')
+    history.push('/') // 2019-04-23 리프레시 확인필요
     // If `authorize` was the winner...
     if (winner.auth) {
       // ...we send Redux appropiate actions
       yield put({type: types.SET_AUTH, newAuthState: true}) // User is logged in (authorized)
-      yield put({type: types.CHANGE_FORM, newFormState: {username: '', password: ''}}) // Clear form
-      console.log('============logout')
+      yield put({type: types.CHANGE_FORM, newFormState: {username: '', password: ''}}) // Clear form      
       // forwardTo('/dashboard') // Go to dashboard page // history 관련
     }
   }

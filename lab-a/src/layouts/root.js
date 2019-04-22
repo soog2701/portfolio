@@ -55,65 +55,69 @@ const styles = theme => ({
 });
 
 class Root extends Component {
-    state = {
-        value: 0,
-    };
-    componentDidMount () {
-        // console.log(s)
-    }
-    handleChange = (event, value) => {
-        this.setState({ value });
-    };
-    
-    render() {
-        const { classes, history } = this.props;
-        const { value } = this.state;
-        
-        return (
-        <div className={classes.root}>
-            <CssBaseline />
-            <AppBar color="primary" >
-                <Box display="flex" flexDirection="row" p={0}>
-                    <Box p={0} flexGrow={1}>
-                        <Tabs
-                            value={value}
-                            onChange={this.handleChange}
-                            variant="scrollable" scrollButtons="off"
-                        >
-                            <Tab label="home" icon={<HomeIcon />} onClick={() => {history.push('/')}} />
-                            <Tab label="List" icon={<FavoriteIcon />} onClick={() => {history.push('/list')}} />
-                            <Tab label="Item Three" icon={<PersonPinIcon />} />
-                            <Tab label="Item Four" icon={<HelpIcon />} />
-                            <Tab label="Item Five" icon={<ShoppingBasket />} />
-                            <Tab label="Item Six" icon={<ThumbDown />} />
-                            <Tab label="Item Seven" icon={<ThumbUp />} />
-                        </Tabs>
-                    </Box>
-                    <Box p={0} mr={2} display="flex" alignItems="center">
-                        <Button color="inherit">
-                            <Link className={classes.links} to="/login" >Login</Link>
-                        </Button>
-                    </Box>
-                </Box>
-            </AppBar>
-            <Grid container className={classes.tabConts} spacing={0}>
-                <Grid item xs={12}>
-                    {/* <main 
-                        className={classNames(classes.content, {
-                            [classes.contentShift]: open,
-                        })}
-                    >
-                        <div className={classes.drawerHeader} />
-                        <div className={classes.contents} >
-                            <RouterView />
-                        </div>
-                    </main> */}
-                    <RouterView />
-                </Grid>
-            </Grid>
-        </div>
-        );
-    }
+  constructor(props) {
+    super(props);
+    console.log(props)
+  }
+  state = {
+      value: 0,
+  };
+  componentDidMount () {
+      // console.log(s)
+  }
+  handleChange = (event, value) => {
+      this.setState({ value });
+  };
+  
+  render() {
+      const { classes, history } = this.props;
+      const { value } = this.state;
+      
+      return (
+      <div className={classes.root}>
+          <CssBaseline />
+          <AppBar color="primary" >
+              <Box display="flex" flexDirection="row" p={0}>
+                  <Box p={0} flexGrow={1}>
+                      <Tabs
+                          value={value}
+                          onChange={this.handleChange}
+                          variant="scrollable" scrollButtons="off"
+                      >
+                          <Tab label="home" icon={<HomeIcon />} onClick={() => {history.push('/')}} />
+                          <Tab label="List" icon={<FavoriteIcon />} onClick={() => {history.push('/list')}} />
+                          <Tab label="Item Three" icon={<PersonPinIcon />} />
+                          <Tab label="Item Four" icon={<HelpIcon />} />
+                          <Tab label="Item Five" icon={<ShoppingBasket />} />
+                          <Tab label="Item Six" icon={<ThumbDown />} />
+                          <Tab label="Item Seven" icon={<ThumbUp />} />
+                      </Tabs>
+                  </Box>
+                  <Box p={0} mr={2} display="flex" alignItems="center">
+                      <Button color="inherit">
+                          <Link className={classes.links} to="/login" >Login</Link>
+                      </Button>
+                  </Box>
+              </Box>
+          </AppBar>
+          <Grid container className={classes.tabConts} spacing={0}>
+              <Grid item xs={12}>
+                  {/* <main 
+                      className={classNames(classes.content, {
+                          [classes.contentShift]: open,
+                      })}
+                  >
+                      <div className={classes.drawerHeader} />
+                      <div className={classes.contents} >
+                          <RouterView />
+                      </div>
+                  </main> */}
+                  <RouterView />
+              </Grid>
+          </Grid>
+      </div>
+      );
+  }
 }
 Root.propTypes = {
     classes: PropTypes.object.isRequired,
