@@ -16,7 +16,7 @@ sagaMiddleware.run(saga);
 
 const App = () => (
   <Provider store={store} >
-    <BrowserRouter>
+    <BrowserRouter forceRefresh={true}>
       <MuiThemeProvider theme={theme} >
         <Root />
       </MuiThemeProvider>

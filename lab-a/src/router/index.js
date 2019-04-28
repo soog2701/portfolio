@@ -4,6 +4,7 @@ import React from 'react';
 import {
     // BrowserRouter,
     Route,
+    Router,
     // Link,
     // Redirect,
     // withRouter,
@@ -16,16 +17,20 @@ import Login from './../components/login/login';
 import List from './../components/page/card';
 import Main from './../components/main';
 // const supportsHistory = 'pushState' in window.history
+import history from './../history';
 
 const RouterView = ({ store }) => (
     // <BrowserRouter>
     <div>
+      {/*  history.push 작동 */}
+      <Router history={history}>
         <Switch>
-            <Route exact path="/" component={Main} />
             <Route path="/login" component={Login} />
             <Route path="/list" component={List} />
+            <Route exact path="/" component={Main} />
         </Switch>
-    </div>    
+      </Router>
+    </div>
     // </BrowserRouter>
 );
 
