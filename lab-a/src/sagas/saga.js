@@ -142,8 +142,7 @@ export function * loginFlow () {
   while (true) {
     // And we're listening for `LOGIN_REQUEST` actions and destructuring its payload
     const request = yield take(types.LOGIN_REQUEST)
-    const {username, password} = request.data
-
+    const {username, password} = request.payload // request.data
     // A `LOGOUT` action may happen while the `authorize` effect is going on, which may
     // lead to a race condition. This is unlikely, but just in case, we call `race` which
     // returns the "winner", i.e. the one that finished first
@@ -152,13 +151,15 @@ export function * loginFlow () {
       logout: take(types.LOGOUT)
     })
     console.log('============login===============')
-    history.push('/') // 2019-04-23 리프레시 확인필요
+    // history.push('/') // 2019-04-23 리프레시 확인필요 => 2019-04-28 react-router-redux 설치 => 삭제후 history.replace 적용
+    history.replace('/'); // 
     // If `authorize` was the winner...
     if (winner.auth) {
       // ...we send Redux appropiate actions
       yield put({type: types.SET_AUTH, newAuthState: true}) // User is logged in (authorized)
       yield put({type: types.CHANGE_FORM, newFormState: {username: '', password: ''}}) // Clear form      
       // forwardTo('/dashboard') // Go to dashboard page // history 관련
+      
     }
   }
 }

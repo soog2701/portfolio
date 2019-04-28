@@ -132,4 +132,4 @@ function select (state) {
   }
 }
 
-export default connect(select)(withRouter(withStyles(styles, { withTheme: true })(Root)));
+export default withRouter(connect(select)(withStyles(styles, { withTheme: true })(Root)));

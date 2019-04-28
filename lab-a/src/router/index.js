@@ -3,11 +3,11 @@ import React from 'react';
 // import { Router, browserHistory } from 'react-router';
 import {
     // BrowserRouter,
-    Route,
-    Router,
+    Route,    
     // Link,
     // Redirect,
     // withRouter,
+    // ConnectedRouter,
     Switch
 } from "react-router-dom"; // https://github.com/ReactTraining/react-router/issues/4648 
 // react-router-dom re-exports all of react-router's exports, so you only need to import from react-router-dom in your project.
@@ -17,19 +17,16 @@ import Login from './../components/login/login';
 import List from './../components/page/card';
 import Main from './../components/main';
 // const supportsHistory = 'pushState' in window.history
-import history from './../history';
+
 
 const RouterView = ({ store }) => (
     // <BrowserRouter>
     <div>
-      {/*  history.push 작동 */}
-      <Router history={history}>
-        <Switch>
-            <Route path="/login" component={Login} />
-            <Route path="/list" component={List} />
-            <Route exact path="/" component={Main} />
-        </Switch>
-      </Router>
+      <Switch>
+          <Route path="/login" component={Login} />
+          <Route path="/list" component={List} /> {/* // 2019-04-28 Redirect 적용필요, router dom 이용 https://reacttraining.com/react-router/web/example/auth-workflow */}
+          <Route exact path="/" component={Main} />
+      </Switch>
     </div>
     // </BrowserRouter>
 );

@@ -47,7 +47,10 @@ export function sendingRequest (sending) {
   return {type: types.SENDING_REQUEST, sending}
 }
 export function loginRequest (data) {
-  return {type: types.LOGIN_REQUEST, data}
+  return {
+    type: types.LOGIN_REQUEST, 
+    payload: data
+  }
 }
 
 export function registerRequest (data) {

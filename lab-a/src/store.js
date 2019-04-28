@@ -6,7 +6,7 @@ import reducers from './reducers'
 import middleware from './middleware'
 
 // import {routerMiddleware} from 'react-router-redux';
-
+// const routersMiddleware = routerMiddleware(history)
 // const initialState = {};
 // const store = configureStore(initialState, browserHistory);
 // const middlewares = [sagaMiddleware, routerMiddleware(history)];

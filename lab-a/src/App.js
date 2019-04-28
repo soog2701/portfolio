@@ -6,21 +6,22 @@ import saga from './sagas/saga.js'
 import Root from './layouts/root'
 import { sagaMiddleware } from './middleware'
 import { MuiThemeProvider } from '@material-ui/core/styles';
-import { BrowserRouter } from "react-router-dom";
-
+import { Router } from "react-router-dom"; // BrowserRouter
+// import { Router } from "react-router";
+import customHistory from './history';
 // Theme
 import {theme} from './layouts/theme'
 
 // run the saga
 sagaMiddleware.run(saga);
-
+//   {/*   history.push 작동 */}
 const App = () => (
   <Provider store={store} >
-    <BrowserRouter forceRefresh={true}>
+    <Router history={customHistory}>
       <MuiThemeProvider theme={theme} >
         <Root />
       </MuiThemeProvider>
-    </BrowserRouter>
+    </Router>
   </Provider>
 )
 export default App
