@@ -17,12 +17,12 @@ const auth = {
   * @param  {string} password The password of the user
   */
   login (username, password) {
-    if (auth.loggedIn()) return Promise.resolve(true)
-
+    if (auth.loggedIn()) return Promise.resolve(true)    
     // Post a fake request
     return request.post('/login', {username, password})
       .then(response => {
         // Save token to local storage
+        console.log('token???', response) // 2019-04-28 실행확인중
         localStorage.token = response.token
         return Promise.resolve(true)
       })

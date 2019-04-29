@@ -84,6 +84,7 @@ let initialState = {
     password: ''
   },
   error: '',
+  islogin: false,
   currentlySending: false,
   loggedIn: auth.loggedIn()
 }
@@ -100,6 +101,8 @@ function reducers (state = initialState, action) {
       return {...state, error: action.error}
     case types.CLEAR_ERROR:
       return {...state, error: ''}
+    case types.LOGIN_REQUEST:
+      return {...state, islogin: true} // 2019-04-28 값 추가
     default:
       return state
   }

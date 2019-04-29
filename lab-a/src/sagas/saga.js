@@ -152,7 +152,7 @@ export function * loginFlow () {
     })
     console.log('============login===============')
     // history.push('/') // 2019-04-23 리프레시 확인필요 => 2019-04-28 react-router-redux 설치 => 삭제후 history.replace 적용
-    history.replace('/'); // 
+    history.replace('/list'); // 
     // If `authorize` was the winner...
     if (winner.auth) {
       // ...we send Redux appropiate actions

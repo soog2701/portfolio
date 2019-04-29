@@ -60,19 +60,22 @@ class Root extends Component {
     console.log(props)
   }
   state = {
-      value: 0,
+    value: 0
   };
   componentDidMount () {
       // console.log(s)
+  }
+  componentWillUpdate() {
+    console.log('is root---------->', this.props.data); // store // 2019-04-28 next state 로 업데이트 되서 false가 된다...
   }
   handleChange = (event, value) => {
       this.setState({ value });
   };
   
   render() {
-      const { classes, history } = this.props;
+      const { classes, history, data } = this.props;
       const { value } = this.state;
-      
+      let { reducers: {islogin} } = data
       return (
       <div className={classes.root}>
           <CssBaseline />
@@ -95,7 +98,7 @@ class Root extends Component {
                   </Box>
                   <Box p={0} mr={2} display="flex" alignItems="center">
                       <Button color="inherit">
-                          <Link className={classes.links} to="/login" >Login</Link>
+                          <Link className={classes.links} to="/login" >{islogin ? 'logout':'Login'}</Link>
                       </Button>
                   </Box>
               </Box>

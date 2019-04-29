@@ -36,10 +36,9 @@ class LoginView extends React.Component {
       id: 'admin',
       password: 'admin'
   };
-    // componentWillMount() {
-    //     let { dispatch } = this.props;
-    //     console.log(this.props)
-    // }
+  componentWillUpdate() {
+    console.log('login---------->', this.props.data); // store
+  }
     
   goLogin = () => {
       console.log('login')
@@ -52,7 +51,6 @@ class LoginView extends React.Component {
   };
   _login (username, password) {
     this.props.dispatch(loginRequest({username, password}))
-    console.log('login---------->', this.props.data); // store
   }
   render() {
       const { classes } = this.props; // theme
