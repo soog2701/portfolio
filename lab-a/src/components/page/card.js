@@ -12,6 +12,8 @@ import SkipNextIcon from '@material-ui/icons/SkipNext';
 import Grid from '@material-ui/core/Grid';
 
 import axios from 'axios';
+import jsonpAdapter from 'axios-jsonp';
+// import jsonp from 'jsonp';
 
 const styles = theme => ({
     root:{
@@ -63,7 +65,8 @@ class MediaControlCard extends React.Component {
           'Access-Control-Allow-Origin': '*',
           'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS',
           'Access-Control-Allow-Headers': 'Content-Type, Authorization, Content-Length, X-Requested-With'    
-          }
+          },
+          adapter: jsonpAdapter,
         }
       )
       news.then(res => {
@@ -71,6 +74,23 @@ class MediaControlCard extends React.Component {
       }).catch((error) => {
         console.log('error ' + error);
       });
+      // jsonp('https://openapi.naver.com/v1/search/news.xml?query=%EC%A3%BC%EC%8B%9D&display=10&start=1&sort=sim', 
+      //   { headers: {
+      //     'Content-Type': 'plain/text',
+      //     'X-Naver-Client-Id': 'AzWO1JE9eGL8a4Gj7ma_', 
+      //     'X-Naver-Client-Secret': '0aw5RZfSFX',
+      //     'Access-Control-Allow-Origin': '*',
+      //     'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS',
+      //     'Access-Control-Allow-Headers': 'Content-Type, Authorization, Content-Length, X-Requested-With'    
+      //     },
+      //   }
+      // , (err, data) => {
+      //   if (err) {
+      //     console.error(err.message);
+      //   } else {
+      //     console.log(data);
+      //   }
+      // });
     }
 
     createList = (classes, theme) => {
