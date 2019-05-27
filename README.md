@@ -2,7 +2,8 @@
 
 <!-- ## lab-a :  -->
 
-
+# etc
+## react native 잠깐 해본 
 # projects
 수행했던 프로젝트 js파일 모음  
   
