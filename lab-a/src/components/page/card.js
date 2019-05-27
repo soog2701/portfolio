@@ -73,7 +73,16 @@ class MediaControlCard extends React.Component {
       // }).catch((error) => {
       //   console.log('error ' + error);
       // });
-      
+      let test = axios.get('http://localhost:3080/news',
+      { headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS',
+        'Access-Control-Allow-Headers': 'Content-Type, Authorization, Content-Length, X-Requested-With'    
+        },
+      });
+      test.then(res=>{
+        console.log(res)
+      })
     }
 
     createList = (classes, theme) => {
