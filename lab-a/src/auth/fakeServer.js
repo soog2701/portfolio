@@ -2,6 +2,9 @@ import {hashSync, genSaltSync, compareSync} from 'bcryptjs'
 
 import genSalt from './salt'
 
+import axios from 'axios';
+
+
 let users
 let localStorage
 const salt = genSaltSync(10)
