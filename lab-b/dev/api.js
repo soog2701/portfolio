@@ -39,28 +39,31 @@ app.get('/mine', (req, res) => {
 
 function getNewsData() {
   return axios
-  .get('https://openapi.naver.com/v1/search/news.xml?query=%EC%A3%BC%EC%8B%9D&display=10&start=1&sort=sim',       
+  .get('https://openapi.naver.com/v1/search/news.json?query=%EC%A3%BC%EC%8B%9D&display=10&start=1&sort=sim',       
     { headers: {
-      'Content-Type': 'plain/text',
-      // 'Content-Type': 'application/json',
+      //'Content-Type': 'plain/text',
+      'Content-Type': 'application/json',
       'X-Naver-Client-Id': 'AzWO1JE9eGL8a4Gj7ma_', 
       'X-Naver-Client-Secret': '0aw5RZfSFX',      
       },
     }
-  ).then(res => {
-    console.log(res)
-  }).catch((error) => {
-    console.log('error ' + error);
-  });
+  );
+  // .then(res => {
+  //   console.log(res)
+  // }).catch((error) => {
+  //   console.log('error ' + error);
+  // });
 }
 app.get('/news', cors(corsOpt), (req, res) => {
   getNewsData().then(thatDerivedDataWeNeed => {
-    // res.locals.whatever = thatDerivedDataWeNeed;
-    // console.log(thatDerivedDataWeNeed)
-    res.set('Content-Type', 'text/plain')
-    res.send({data: thatDerivedDataWeNeed })
+    // console.log(req.is('text/*'));
+    // console.log(req.is('json'));
+    // console.log(JSON.stringify(thatDerivedDataWeNeed.data))
+    // console.log('RB: ' + req);
+    // console.log('RB: ' + req.rawBody);
+    // console.log('B: ' + JSON.stringify(req.body));
+    res.send(JSON.stringify(thatDerivedDataWeNeed.data));
   })
-  // res.json({msg: 'This is CORS-enabled for all origins!'})  
 })
 
 app.listen(3080, () => {

@@ -52,27 +52,7 @@ class MediaControlCard extends React.Component {
         spacing: '16',
     };
 
-    getNews() {
-      // axios.defaults.proxy = {
-      //   host: 'http://localhost',
-      //   port: 3000,
-      // };
-      // let news = axios.get('https://openapi.naver.com/v1/search/news.xml?query=%EC%A3%BC%EC%8B%9D&display=10&start=1&sort=sim',       
-      //   { headers: {
-      //     'Content-Type': 'plain/text',
-      //     'X-Naver-Client-Id': 'AzWO1JE9eGL8a4Gj7ma_', 
-      //     'X-Naver-Client-Secret': '0aw5RZfSFX',
-      //     'Access-Control-Allow-Origin': '*',
-      //     'Access-Control-Allow-Methods': 'GET,PUT,POST,DELETE,OPTIONS',
-      //     'Access-Control-Allow-Headers': 'Content-Type, Authorization, Content-Length, X-Requested-With'    
-      //     },
-      //   }
-      // )
-      // news.then(res => {
-      //   console.log(res)
-      // }).catch((error) => {
-      //   console.log('error ' + error);
-      // });
+    getNews() {      
       let test = axios.get('http://localhost:3080/news',
       { headers: {
         'Access-Control-Allow-Origin': '*',
@@ -81,7 +61,8 @@ class MediaControlCard extends React.Component {
         },
       });
       test.then(res=>{
-        console.log(res)
+        const {data} = res
+        console.log(data)
       })
     }
 
