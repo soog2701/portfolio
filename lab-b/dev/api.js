@@ -39,7 +39,7 @@ app.get('/mine', (req, res) => {
 
 function getNewsData() {
   return axios
-  .get('https://openapi.naver.com/v1/search/news.json?query=%EC%A3%BC%EC%8B%9D&display=10&start=1&sort=sim',       
+  .get(`https://openapi.naver.com/v1/search/news.json?query=${encodeURIComponent('경제')}&display=10&start=1&sort=sim`,       
     { headers: {
       //'Content-Type': 'plain/text',
       'Content-Type': 'application/json',

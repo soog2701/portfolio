@@ -12,8 +12,6 @@ import SkipNextIcon from '@material-ui/icons/SkipNext';
 import Grid from '@material-ui/core/Grid';
 
 import axios from 'axios';
-// import jsonpAdapter from 'axios-jsonp';
-// import jsonp from 'jsonp';
 
 const styles = theme => ({
     root:{
@@ -49,10 +47,11 @@ const styles = theme => ({
 });
 class MediaControlCard extends React.Component {
     state = {
-        spacing: '16',
+      spacing: '16',
+      list:[]
     };
 
-    getNews() {      
+    getNews() {
       let test = axios.get('http://localhost:3080/news',
       { headers: {
         'Access-Control-Allow-Origin': '*',
@@ -62,58 +61,33 @@ class MediaControlCard extends React.Component {
       });
       test.then(res=>{
         const {data} = res
-        console.log(data)
+        this.setState({list: data.items})
+        console.log(this.state.list)
       })
     }
-
-    createList = (classes, theme) => {
-        let list = []
-        for(let i = 0; i < 3; i++) {
-            list.push(
-            <Card className={classes.cardlist} key={i}>
-                <div className={classes.details}>
-                    <CardContent className={classes.content}>
-                    <Typography component="h5" variant="h5">
-                        Live From Space
-                    </Typography>
-                    <Typography variant="subtitle1" color="textSecondary">
-                        Mac Miller
-                    </Typography>
-                    </CardContent>
-                    <div className={classes.controls}>
-                        <IconButton aria-label="Previous">
-                            {theme.direction === 'rtl' ? <SkipNextIcon /> : <SkipPreviousIcon />}
-                        </IconButton>
-                        <IconButton aria-label="Play/pause">
-                            <PlayArrowIcon className={classes.playIcon} />
-                        </IconButton>
-                        <IconButton aria-label="Next">
-                            {theme.direction === 'rtl' ? <SkipPreviousIcon /> : <SkipNextIcon />}
-                        </IconButton>
-                    </div>
-                </div>
-            </Card>
-            )
-        }
-        return list
+    componentDidMount(){
+      this.getNews();
     }
     render() {
         const { classes, theme } = this.props;
-        // const { spacing } = this.state;
-        this.getNews()
+        const {list} = this.state;
+        
         return (
             <Grid container spacing={0} className={classes.root}>
-                <Grid item xs={3}>
-                    {this.createList(classes, theme)}
-                </Grid>
-                <Grid item xs={3}>
-                    {this.createList(classes, theme)}
-                </Grid>
-                <Grid item xs={3}>
-                    {this.createList(classes, theme)}
-                </Grid>
-                <Grid item xs={3}>
-                    {this.createList(classes, theme)}
+                <Grid item xs={12} style={{display:'flex', flexWrap:'wrap', flexDirection:'row'}}>
+                    {list.map((item,i)=>(
+                      <Grid xs={4} style={{display:'flex', marginLeft:'10px'}}>
+                        <Card className={classes.cardlist} key={i}>
+                          <div className={classes.details}>
+                            <CardContent className={classes.content}>
+                              <a href={item.link}>
+                                <Typography component="h5" variant="h5">{item.title.replace('<b>', '').replace('</b>', '').replace(/&quot;/g,'')}</Typography>
+                              </a>
+                            </CardContent>
+                          </div>
+                        </Card>
+                      </Grid>                      
+                    ))}
                 </Grid>
             </Grid>
         );
