@@ -12,6 +12,9 @@ import customHistory from './history';
 // Theme
 import {theme} from './layouts/theme'
 
+// antd 디자인적용
+import 'antd/dist/antd.css';
+
 // run the saga
 sagaMiddleware.run(saga);
 //   {/*   history.push 작동 */}
