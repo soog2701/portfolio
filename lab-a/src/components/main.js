@@ -4,7 +4,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
 import Typography from '@material-ui/core/Typography';
-import { unstable_Box as Box } from '@material-ui/core/Box';
+// import { unstable_Box as Box } from '@material-ui/core/Box';
 
 
 const styles = theme => ({
@@ -38,8 +38,8 @@ class Main extends React.Component {
         return (
             <Grid container className={classes.root} spacing={spacing} justify="center">
                 <Grid item xs={12} className={classes.visual}>
-                    <Box display="flex" flexDirection="colum">
-                        <Box className={classes.visual}>
+                    <div display="flex" flexDirection="colum">
+                        <div className={classes.visual}>
                             <Grid container className={classes.visualCont} justify="center" alignItems="center">
                                 <Grid item xs={6}>
                                     <Typography variant="h3" className={classes.visualTitle} gutterBottom>
@@ -58,8 +58,8 @@ class Main extends React.Component {
                                     </Grid>
                                 </Grid>
                             </Grid>
-                        </Box>
-                    </Box>
+                        </div>
+                    </div>
                 </Grid>
                 
                 <Grid item xs={12}>
