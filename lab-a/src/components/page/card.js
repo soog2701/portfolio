@@ -12,6 +12,7 @@ import SkipNextIcon from '@material-ui/icons/SkipNext';
 import Grid from '@material-ui/core/Grid';
 
 import axios from 'axios';
+import { Divider } from 'antd';
 
 const styles = theme => ({
     root:{
@@ -73,23 +74,32 @@ class MediaControlCard extends React.Component {
         const {list} = this.state;
         
         return (
-            <Grid container spacing={0} className={classes.root}>
-                <Grid item xs={12} style={{display:'flex', flexWrap:'wrap', flexDirection:'row'}}>
-                    {list.map((item,i)=>(
-                      <Grid xs={4} style={{display:'flex', marginLeft:'10px'}}>
-                        <Card className={classes.cardlist} key={i}>
-                          <div className={classes.details}>
-                            <CardContent className={classes.content}>
-                              <a href={item.link}>
-                                <Typography component="h5" variant="h5">{item.title.replace('<b>', '').replace('</b>', '').replace(/&quot;/g,'')}</Typography>
-                              </a>
-                            </CardContent>
-                          </div>
-                        </Card>
-                      </Grid>                      
-                    ))}
-                </Grid>
-            </Grid>
+            // <Grid container spacing={0} className={classes.root}>
+            //     <Grid item xs={12} style={{display:'flex', flexWrap:'wrap', flexDirection:'row'}}>
+            //         {list.map((item,i)=>(
+            //           <Grid xs={4} style={{display:'flex', marginLeft:'10px'}}>
+            //             <Card className={classes.cardlist} key={i}>
+            //               <div className={classes.details}>
+            //                 <CardContent className={classes.content}>
+            //                   <a href={item.link}>
+            //                     <Typography component="h5" variant="h5">{item.title.replace('<b>', '').replace('</b>', '').replace(/&quot;/g,'')}</Typography>
+            //                   </a>
+            //                 </CardContent>
+            //               </div>
+            //             </Card>
+            //           </Grid>                      
+            //         ))}
+            //     </Grid>
+            // </Grid>
+            <div>
+              {
+                list.map((item,i)=>(
+                  <div>
+                    <a href={item.link}>{item.title.replace('<b>', '').replace('</b>', '').replace(/&quot;/g,'')}</a>
+                  </div>
+                ))
+              }
+            </div>
         );
     }
 }

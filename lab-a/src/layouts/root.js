@@ -10,7 +10,7 @@ import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 // tab
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -24,6 +24,9 @@ import ShoppingBasket from '@material-ui/icons/ShoppingBasket';
 import ThumbDown from '@material-ui/icons/ThumbDown';
 import ThumbUp from '@material-ui/icons/ThumbUp';
 import HomeIcon from '@material-ui/icons/Home';
+
+// antd
+import { Row, Col, Button } from 'antd';
 
 // import { unstable_Box as Box } from '@material-ui/core/Box';
 import RouterView from '../router/index.js';
@@ -78,46 +81,22 @@ class Root extends Component {
       let { reducers: {islogin} } = data
       return (
       <div className={classes.root}>
-          <CssBaseline />
-          <AppBar color="primary" >
-              <div display="flex" flexDirection="row" p={0}>
-                  <div p={0} flexGrow={1}>
-                      <Tabs
-                          value={value}
-                          onChange={this.handleChange}
-                          variant="scrollable" scrollButtons="off"
-                      >
-                          <Tab label="home" icon={<HomeIcon />} onClick={() => {history.push('/')}} />
-                          <Tab label="List" icon={<FavoriteIcon />} onClick={() => {history.push('/list')}} />
-                          <Tab label="Item Three" icon={<PersonPinIcon />} />
-                          <Tab label="Item Four" icon={<HelpIcon />} />
-                          <Tab label="Item Five" icon={<ShoppingBasket />} />
-                          <Tab label="Item Six" icon={<ThumbDown />} />
-                          <Tab label="Item Seven" icon={<ThumbUp />} />
-                      </Tabs>
-                  </div>
-                  <div p={0} mr={2} display="flex" alignItems="center">
-                      <Button color="inherit">
-                          <Link className={classes.links} to="/login" >{islogin ? 'logout':'Login'}</Link>
-                      </Button>
-                  </div>
-              </div>
-          </AppBar>
-          <Grid container className={classes.tabConts} spacing={0}>
-              <Grid item xs={12}>
-                  {/* <main 
-                      className={classNames(classes.content, {
-                          [classes.contentShift]: open,
-                      })}
-                  >
-                      <div className={classes.drawerHeader} />
-                      <div className={classes.contents} >
-                          <RouterView />
-                      </div>
-                  </main> */}
-                  <RouterView />
-              </Grid>
-          </Grid>
+        <div>
+          <Button style={{display: 'inline-block'}} type="primary" onClick={() => {history.push('/')}}>root</Button>
+          <Button style={{display: 'inline-block'}} type="primary" onClick={() => {history.push('/list')}}>list</Button>
+          <Button style={{display: 'inline-block'}} type="primary">tab1</Button>
+          <div style={{display: 'inline-block'}}>
+            <Button color="inherit">
+                <Link className={classes.links} to="/login" >{islogin ? 'logout':'Login'}</Link>
+            </Button>
+          </div>
+        </div>
+        <div style={{ display: 'flex', flexDirection: 'row'}}>
+          <div style={{ width: '30%' }}>
+
+          </div>
+          <RouterView style={{ width: '70%' }} />
+        </div>        
       </div>
       );
   }
