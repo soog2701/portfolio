@@ -14,6 +14,8 @@ import {theme} from './layouts/theme'
 
 // antd 디자인적용
 import 'antd/dist/antd.css';
+// import './layouts/css/common.scss';
+
 
 // run the saga
 sagaMiddleware.run(saga);

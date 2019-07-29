@@ -34,9 +34,13 @@ import { withRouter, Link } from 'react-router-dom';
 
 const styles = theme => ({
     root: {
-        // display: 'flex',
-        // flexGrow: 1,
-        width: '100%',
+        display: 'flex',
+        flexGrow: 1,
+        flexDirection: 'column',
+        // width: '100%',
+        height:'100%',
+        paddingTop: '20px',
+        backgroundColor: 'darkgray'
     },    
     toolbar: theme.mixins.toolbar, 
     contents: {
@@ -81,17 +85,17 @@ class Root extends Component {
       let { reducers: {islogin} } = data
       return (
       <div className={classes.root}>
-        <div>
-          <Button style={{display: 'inline-block'}} type="primary" onClick={() => {history.push('/')}}>root</Button>
-          <Button style={{display: 'inline-block'}} type="primary" onClick={() => {history.push('/list')}}>list</Button>
-          <Button style={{display: 'inline-block'}} type="primary">tab1</Button>
-          <div style={{display: 'inline-block'}}>
+        <div style={{display: 'flex', flexDirection: 'row',}}>
+          <Button style={{}} type="primary" onClick={() => {history.push('/')}}>root</Button>
+          <Button style={{}} type="primary" onClick={() => {history.push('/list')}}>list</Button>
+          <Button style={{}} type="primary">tab1</Button>
+          <div style={{marginLeft:'auto'}}>
             <Button color="inherit">
                 <Link className={classes.links} to="/login" >{islogin ? 'logout':'Login'}</Link>
             </Button>
           </div>
         </div>
-        <div style={{ display: 'flex', flexDirection: 'row'}}>
+        <div style={{ display: 'flex', flexDirection: 'row', borderTop: '1px solid gray'}}>
           <div style={{ width: '30%' }}>
 
           </div>
