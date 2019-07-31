@@ -10,7 +10,8 @@ import { withStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
-// import Button from '@material-ui/core/Button';
+import Button from '@material-ui/core/Button';
+
 // tab
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
@@ -26,7 +27,7 @@ import ThumbUp from '@material-ui/icons/ThumbUp';
 import HomeIcon from '@material-ui/icons/Home';
 
 // antd
-import { Row, Col, Button } from 'antd';
+import { Row, Col } from 'antd'; // Button
 
 // import { unstable_Box as Box } from '@material-ui/core/Box';
 import RouterView from '../router/index.js';
@@ -40,7 +41,7 @@ const styles = theme => ({
         // width: '100%',
         height:'100%',
         paddingTop: '20px',
-        backgroundColor: 'darkgray'
+        backgroundColor: '#263238'
     },    
     toolbar: theme.mixins.toolbar, 
     contents: {
@@ -58,6 +59,12 @@ const styles = theme => ({
     links: {
         textDecoration: 'none',
         color: theme.palette.primary.contrastText
+    },
+    button:{
+      marginRight: '1px',
+      borderBottomLeftRadius: '0',
+      borderBottomRightRadius: '0',
+      backgroundColor: '#546e7a'
     }
 });
 
@@ -86,16 +93,16 @@ class Root extends Component {
       return (
       <div className={classes.root}>
         <div style={{display: 'flex', flexDirection: 'row',}}>
-          <Button style={{}} type="primary" onClick={() => {history.push('/')}}>root</Button>
-          <Button style={{}} type="primary" onClick={() => {history.push('/list')}}>list</Button>
-          <Button style={{}} type="primary">tab1</Button>
+          <Button className={classes.button} onClick={() => {history.push('/')}}>root</Button>
+          <Button className={classes.button} onClick={() => {history.push('/list')}}>list</Button>
+          <Button className={classes.button}>tab1</Button>
           <div style={{marginLeft:'auto'}}>
             <Button color="inherit">
                 <Link className={classes.links} to="/login" >{islogin ? 'logout':'Login'}</Link>
             </Button>
           </div>
         </div>
-        <div style={{ display: 'flex', flexDirection: 'row', borderTop: '1px solid gray'}}>
+        <div style={{ display: 'flex', flexDirection: 'row', borderTop: '1px solid #37474f'}}>
           <div style={{ width: '30%' }}>
 
           </div>
