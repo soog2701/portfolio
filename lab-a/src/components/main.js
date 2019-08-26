@@ -38,7 +38,7 @@ class Main extends React.Component {
         return (
             <Grid container className={classes.root} spacing={spacing} justify="center">
                 <Grid item xs={12} className={classes.visual}>
-                    <div display="flex" flexDirection="colum">
+                    <div style={{display:"flex", flexDirection:"colum"}}>
                         <div className={classes.visual}>
                             <Grid container className={classes.visualCont} justify="center" alignItems="center">
                                 <Grid item xs={6}>

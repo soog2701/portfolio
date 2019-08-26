@@ -65,6 +65,15 @@ const styles = theme => ({
       borderBottomLeftRadius: '0',
       borderBottomRightRadius: '0',
       backgroundColor: '#546e7a'
+    },
+    wrap:{
+      display: 'flex',
+      flexdirection: 'row', 
+      borderTop: '1px solid #37474f'
+    },
+    row : {
+      display: 'flex',
+      flexDirection: 'row'
     }
 });
 
@@ -89,10 +98,10 @@ class Root extends Component {
   render() {
       const { classes, history, data } = this.props;
       const { value } = this.state;
-      let { reducers: {islogin} } = data
+      let { reducers: {islogin} } = data;
       return (
       <div className={classes.root}>
-        <div style={{display: 'flex', flexDirection: 'row',}}>
+        <div className={classes.row}>
           <Button className={classes.button} onClick={() => {history.push('/')}}>root</Button>
           <Button className={classes.button} onClick={() => {history.push('/list')}}>list</Button>
           <Button className={classes.button}>tab1</Button>
@@ -102,12 +111,10 @@ class Root extends Component {
             </Button>
           </div>
         </div>
-        <div style={{ display: 'flex', flexDirection: 'row', borderTop: '1px solid #37474f'}}>
-          <div style={{ width: '30%' }}>
-
-          </div>
-          <RouterView style={{ width: '70%' }} />
-        </div>        
+        <div className={classes.wrap}>
+          { history.location.pathname ==='/login' ? '' : <div style={{ width: '30%' }}></div>}
+          { history.location.pathname ==='/login' ? <RouterView style={{ width: '100%'}} /> : <RouterView style={{ width: '70%' }} /> }
+        </div>
       </div>
       );
   }

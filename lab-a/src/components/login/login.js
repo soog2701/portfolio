@@ -21,6 +21,7 @@ import { login, loginRequest } from '../../actions' //, logout, token
 const styles = () => ({ // arg1: theme
     root: {
         flexGrow: 1,
+        justifyContent: 'center' 
     },
     margin: {
         marginTop: '20px'

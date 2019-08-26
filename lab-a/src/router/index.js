@@ -20,14 +20,12 @@ import Main from './../components/main';
 
 
 const RouterView = ({ store }) => (
-    // <BrowserRouter>
-    <div>
-      <Switch>
-          <Route path="/login" component={Login} />
-          <Route path="/list" component={List} /> {/* // 2019-04-28 Redirect 적용필요, router dom 이용 https://reacttraining.com/react-router/web/example/auth-workflow */}
-          <Route exact path="/" component={Main} />
-      </Switch>
-    </div>
+    // <BrowserRouter>    
+    <Switch>
+        <Route path="/login" component={Login} />
+        <Route path="/list" component={List} /> {/* // 2019-04-28 Redirect 적용필요, router dom 이용 https://reacttraining.com/react-router/web/example/auth-workflow */}
+        <Route exact path="/" component={Main} />
+    </Switch>
     // </BrowserRouter>
 );
 
