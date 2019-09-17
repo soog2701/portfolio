@@ -12,36 +12,6 @@ const INITIAL_STATE = {
     user: {id: '', password: ''}
 };
 
-// export default (state = INITIAL_STATE, { type, payload, error }) => {
-//     switch (type) {
-//         case types.FETCH_BOARDS_FULFILLED:
-//             return {
-//                 ...state,
-//                 boards: payload
-//             };
-//         case types.FETCH_BOARDS_REJECTED:
-//             return {
-//                 ...state,
-//                 showError: true,
-//                 error
-//             };
-//         default:
-//             return state;
-//     }
-// };
-
-// function counter(state = 0, action) {
-//     switch (action.type) {
-//         case 'INCREMENT':
-//             return state + 1
-//         case 'INCREMENT_IF_ODD':
-//             return (state % 2 !== 0) ? state + 1 : state
-//         case 'DECREMENT':
-//             return state - 1
-//         default:
-//             return state
-//         }
-//     }
 // vuex 의 getters?
 // const setStateLogin = (state = INITIAL_STATE, { type, payload, error }) => {
 let reducerold = (state = INITIAL_STATE, { type, payload, error }) => {
