@@ -1,3 +1,5 @@
+const withSass = require('@zeit/next-sass')
+
 module.exports = {
     publicRuntimeConfig: {
       localeSubpaths: typeof process.env.LOCALE_SUBPATHS === 'string'
@@ -5,3 +7,7 @@ module.exports = {
         : 'none',
     },
 }
+
+module.exports = withSass({
+  	cssModules: true
+})

@@ -1,0 +1,18 @@
+{
+    "h1": "예제",
+    "welcome": "다비오맵스에 오신 것을 환영합니다.",
+    "korean": "한국어",
+    "engilsh": "영어",
+    "japenese": "일문",
+    "id": "아이디",
+    "password": "비밀번호",
+    "login": {
+        "btn": "로그인",
+        "id": "아이디를 입력해주세요",
+        "password": "비밀번호를 입력해주세요",
+        "save": "아이디 저장",
+        "info": "로그인이 불가한 경우 관리자에게 문의하여 주십시오.",
+        "infoEmail": "대표 이메일 Platform.cs@dabeeo.com"
+    }
+    
+}
