@@ -1,0 +1,1 @@
+{"version":3,"file":"static/css/styles.chunk.css","sources":["webpack:///./static/css/app.scss"],"sourcesContent":["body, div, p {\n  padding: 0;\n  margin: 0; }\n\na {\n  text-decoration: none; }\n  a:hover {\n    text-decoration: none; }\n"],"mappings":"AAAA;AACA;AACA;AACA;AACA;AACA;AACA;AACA;;","sourceRoot":""}

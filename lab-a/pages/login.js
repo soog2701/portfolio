@@ -1,5 +1,5 @@
 import React, { useCallback, useState } from 'react'
-// import { connect } from 'react-redux'
+import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 
 import Selectbox from './../comps/selectbox'
@@ -10,6 +10,8 @@ import { i18n, withTranslation } from '../i18n'
 // css
 import "../static/css/app.scss"
 
+import {loginRequest} from '../redux/module/login'
+
 const Login = (props) => {
     const { t } = props;
     const options = [
@@ -17,6 +19,11 @@ const Login = (props) => {
         { value: 'en', label: t('english') },
         { value: 'ja', label: t('japenese') }
     ]
+    const _login = (username, password) => {
+        // this.props.dispatch(loginRequest({username, password}))
+        // this.props.dispatch(loginRequest({username :'username', password:'password'}))
+        props.dispatch(loginRequest({username :'username', password:'password'}))
+    }
 	return (
 		<div className="platform--login-wrap menu-select-wrap">
             <div className="menu-select--lang-wrap">                
@@ -34,7 +41,7 @@ const Login = (props) => {
                     <div className="left">
                         <DesignCheckbox id="check_remember" name="remember" text={t('login.save')} />
                     </div>
-                    <button className="button btn-main platform--login-btn">{t('login.btn')}</button>
+                    <button className="button btn-main platform--login-btn" onClick={_login}>{t('login.btn')}</button>
                     <div className="platform--login-info">
                         <p>{t('login.info')}</p>
                         <p>{t('login.infoEmail')}</p>
@@ -51,6 +58,14 @@ Login.getInitialProps = async () => ({
   
 Login.propTypes = {
     t: PropTypes.func.isRequired,
+    history: PropTypes.object,
+    dispatch: PropTypes.func
 }
 
-export default withTranslation('common')(Login);
+function select (state) {
+    return {
+        data: state
+    }
+}
+
+export default withTranslation('common')(connect(select)(Login));
