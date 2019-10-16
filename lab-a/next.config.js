@@ -6,8 +6,16 @@ module.exports = {
         ? process.env.LOCALE_SUBPATHS
         : 'none',
     },
+    webpack: config => {
+      config.resolve.mainFields = ["main", "browser", "module"];
+      return config;
+    },
 }
 
 module.exports = withSass({
-  	cssModules: true
+    cssModules: true,
+    cssLoaderOptions: {
+      importLoaders: 1,
+      localIdentName: "[local]___[hash:base64:5]",
+    }
 })

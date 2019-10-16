@@ -1,20 +1,16 @@
 {
-    "h1": "A simple example",
-    "change-locale": "Change locale",
-    "to-second-page": "To second page",
-    "error-with-status": "A {{statusCode}} error occurred on server",
-    "error-without-status": "An error occurred on the server",
-    "welcome": "다비오맵스에 오신 것을 환영합니다.",
+    "h1": "예제",
+    "welcome": "welcome 환영합니다!",
     "korean": "한국어",
     "engilsh": "영어",
     "japenese": "일문",
     "id": "아이디",
     "password": "비밀번호",
     "login": {
-        "btn": "로그인",
+        "btn": "login",
         "id": "아이디를 입력해주세요",
         "password": "비밀번호를 입력해주세요",
-        "save": "아이디 저장",
+        "save": "save id",
         "info": "로그인이 불가한 경우 관리자에게 문의하여 주십시오.",
         "infoEmail": "대표 이메일 Platform.cs@dabeeo.com"
     }

@@ -1,0 +1,181 @@
+$mainColor1 : #35414c;
+.dabeeo{
+    /* text input */
+    &-inputWrap.width100 {
+        width: 100%;
+    }
+    &-inputWrap {
+        position: relative;        
+        display: inline-block;        
+        
+        input::placeholder {
+            color: rgba(130, 145, 155, 1);
+            font-weight: 300;
+        }        
+        input {
+            width: 100%;
+            padding: 8px 10px;
+            font-size: 14px;
+            color: rgba(24, 45, 64, 1);
+            caret-color: rgba(240, 83, 41, 1);
+            border-radius: 3px;
+            border: 1px solid rgba(215, 220, 222, 1);
+            box-sizing: border-box;
+        }
+        input:hover {
+            border-color: rgba(130, 145, 155, 1);
+        }
+        input:focus:not(:read-only)::placeholder {
+            color: rgba(232, 233, 236, 1);
+        }
+        input:focus {
+            outline: none;
+            border-color: rgba(24, 45, 64, 1);            
+        }
+        input:disabled,
+        input:read-only{
+            color: rgba(130, 145, 155, 1);
+            border-color: rgba(232, 233, 236, 1);
+            background-color: rgba(245, 247, 248, 1);
+        }
+        input:disabled + p {
+            color: rgba(130, 145, 155, 1);
+        }
+        p {
+            margin-top: 5px;
+            margin-bottom: 12px;
+            font-size: 12px;
+            color: rgba(24, 45, 64, 1);
+        }
+        &error p {
+            color: rgba(240, 83, 41, 1);
+        }
+        &error input {
+            padding-right: 24px;
+            border-color: rgba(240, 83, 41, 1);
+            //background: center right 10px no-repeat url("../image/assets/Warning_icon-3x.png");
+            background-size: 12px 13px;
+        }
+        &success input {
+            padding-right: 24px;
+            border-color: rgba(24, 45, 64, 1);
+            //background: center right 10px no-repeat url("../image/assets/ok_icon-3x.png");
+            background-size: 13px 13px;
+        }
+        input.input-calendar {
+            padding-right: 26px;
+            //background: center right 10px no-repeat url("../image/assets/btn_calendar-3x.png");
+            background-size: 14px 15px;
+        }
+        input.input-calendar:hover{
+            //background: center right 10px no-repeat url("../image/assets/btn_chalender_on-3x.png");
+            background-size: 14px 15px;    
+        }
+        input.input-calendar:disabled {
+            background-color: rgba(245, 247, 248, 1);
+        }
+        input.input-calendar:disabled:hover{
+            background-color: rgba(245, 247, 248, 1);
+            //background-image: url("../image/assets/btn_calendar-3x.png");
+            background-position: center right 10px;
+            background-size: 14px 15px;
+        }
+    }
+    /* checbox input */
+    &-checbox {
+        display: none;
+        padding: 0;
+        box-sizing: border-box;
+
+        + label {
+            // height: 36px;
+            // line-height: 36px;
+            font-size: 13px;
+            color: rgba(53, 65, 76, 1);
+            cursor: pointer;
+        }
+        + label span {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin: 0;
+            vertical-align: sub;
+            background: none;
+            background-size: 20px 20px;
+            border: 1px solid #d7dcde;
+            border-radius: 3px;
+            box-sizing: border-box;
+        }
+        &:checked + label span {
+            background: url('/static/images/radiobox_select-3x.png') no-repeat;
+            background-size: 20px 20px;
+            border: none;
+        }
+        &:disabled + label span{
+            background-color: rgba(245, 247, 248, 1);
+        }
+        &:checked:disabled + label span {
+            background-image: url('/static/images/radiobox_select_dim-3x.png');
+        }
+    }
+    /* radio input */
+    &-radioWrap{
+        font-size: 13px;
+        >input {
+            display: none;
+        }
+        >span {
+            display: inline-block;
+            position: relative;
+            width: 16px;
+            height: 16px;
+            margin-right: 5px;
+            vertical-align: sub;
+            background-color: #fff;
+            border: 1px solid rgba(215, 220, 222, 1);
+            border-radius: 8px;
+        }
+        >input:checked+span:before {
+            content: "";
+            display: block;
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 8px;
+            height: 8px;
+            background-color: rgba(130, 145, 155, 1);
+            border-radius: 4px;
+        }
+    }
+    /* react-select custom */
+    &-selectWrap{
+        display: inline-block;
+        height: 36px;
+        font-size: 13px;
+        color: #{$mainColor1};
+        box-sizing: border-box;
+
+        select{
+            outline: none;
+        }
+    }
+    /* btn type1 */
+    &-btntype1 {
+        height: 40px;
+        padding: 8px 10px;
+        font-size: 15px;
+        font-weight: normal;
+        color: white;
+        box-sizing: border-box;
+        border-width: 0;
+        background-color: #{$mainColor1};
+        border-radius: 5px;
+        cursor: pointer;
+        outline: none;
+
+        &:hover{
+            font-weight: 500;
+            background-color: #182d40;
+        }
+    }
+}

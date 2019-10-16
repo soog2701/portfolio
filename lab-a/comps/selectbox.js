@@ -1,5 +1,7 @@
 import React, { Component, useEffect } from 'react'
+import $ from 'jquery'
 
+import Select from 'react-select'
 
 const layoutStyle = {
     display: 'inline-block',
@@ -14,7 +16,7 @@ export default function Selectbox (props) {
     
     return (       
         <div className="da-select menu-select--lang" style={layoutStyle} >
-            
+            <Select options={props. options} />
         </div>
     )
 }

@@ -1,25 +1,30 @@
 import axios from 'axios'
+import configureStore from '../redux/store';
 
-var instance = axios.create({
-    baseURL: 'localhost:8080',
-    // timeout: 5000,
-    // headers: {'X-Custom-Header': 'foobar'}
-  });
-// instance.defaults.headers.common['Authorization'] = localStorage.getItem('token')
-// Add a request interceptor
-instance.interceptors.request.use(function (config) {
-    // Do something before request is sent
-    return config;
-}, function (error) {
-    // Do something with request error
-    return Promise.reject(error);
-});
+const instance = axios.create();
 
-// Add a response interceptor
-instance.interceptors.response.use(function (response) {
-    // Do something with response data
-    return response;
-}, function (error) {
-    // Do something with response error
-    return Promise.reject(error);
-});
+if(instance.interceptors) {
+    console.log('configureStore', configureStore);
+    // Add a request interceptor
+    instance.interceptors.request.use(function (config) {
+        // Do something before request is sent
+        // console.log('interceptors.request', config);
+        return config;
+    }, function (error) {
+        // console.log('interceptors.request', error);
+        // Do something with request error
+        return Promise.reject(error);
+    });
+    // Add a response interceptor
+    instance.interceptors.response.use(function (response) {
+        // console.log('interceptors.response', response);
+        // Do something with response data
+        return response;
+    }, function (error) {
+        // console.log('interceptors.response', error);
+        // Do something with response error
+        return Promise.reject(error);
+    });
+}
+
+export default instance

@@ -1,27 +1,34 @@
-// import Document, { Head, Main, NextScript } from 'next/document';
-import Document, { Html, Head, Main, NextScript } from 'next/document';
+import Document, { Head, Main, NextScript } from 'next/document';
+import { lngFromReq } from 'next-i18next/dist/commonjs/utils';
+// css
+import styles from "../static/css/app.scss"
 
-export default class RootDocument extends Document {
-    static async getInitialProps(ctx) {
-        const initialProps = await Document.getInitialProps(ctx);
-        
-    
-        return { ...initialProps };
-    }
-    // lang={this.props.__NEXT_DATA__.props.initialProps.initialLanguage}
-    render() {
-        return (
-            <Html >
-                <Head>
-                    <meta charSet="utf-8" />
-                    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-                    <link rel="icon" type="image/x-icon" href="/static/favicon.ico" />
-                </Head>
-                <body>
-                    <Main />
-                    <NextScript />
-                </body>
-            </Html>           
-        );
-    }
+export default class MyDocument extends Document {
+  static async getInitialProps(ctx) {
+    const initialProps = await Document.getInitialProps(ctx);    
+    return { ...initialProps };
+  }
+
+  render() {
+    return (
+      <html lang={this.props.__NEXT_DATA__.props.initialProps.initialLanguage}>
+        <Head>
+            <style global jsx>{`
+                html.height100, body.height100{
+                    height: 100%;
+                }
+                #__next.height100{
+                    height: 100%;
+                }
+            `}</style>
+            <link rel="icon" type="image/x-icon" href="../static/favicon.ico" />
+            {/* <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet"></link> */}
+        </Head>
+        <body className={styles.platform}>            
+          <Main />
+          <NextScript />
+        </body>
+      </html>
+    );
+  }
 }
