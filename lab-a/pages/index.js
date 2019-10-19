@@ -7,30 +7,40 @@ import { i18n, withTranslation } from '../i18n'
 // css
 import "../static/css/app.scss"
 
-import { Cookies } from 'react-cookie';
-const cookies = new Cookies();
+import { actionTypes, logoutRequest } from '../redux/module/login';
+// import { Cookies } from 'react-cookie';
+// const cookies = new Cookies();
 
-const token = cookies.get('token');
+// const token = cookies.get('token');
 
-const Main = ({ t }) => (
+const Main = ({ t , click }) => (
     <div className="platform">        
         <p>Hello Next.js</p>
         <span>{t('h1')}</span>
         <a href="#"> {t('change-locale')}</a>
+        <p>
+            <a href="#" onClick={click} >logout</a>
+        </p>
+        
     </div>
 )
 let isLogin = false;
 
 const Index = (props) => {
     const { t } = props;
-    
-    return <Main t={t} />;
+
+    const dispatch = useDispatch();
+    const logout = () => {
+        dispatch(logoutRequest());       
+    }
+
+    return <Main t={t} click={logout} />;
 }
 
 Index.getInitialProps = async (res) => {     
     return {
-        isLogin: (token ? true : false),
-        namespacesRequired: ['common'],
+        // isLogin: (token ? true : false),
+        namespacesRequired: ['common']
     }
 }
 

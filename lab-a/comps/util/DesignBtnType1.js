@@ -6,7 +6,7 @@ const layoutStyle = {
 
 export const Btntype1 = (props) => {
     return (
-        <button className={styles['dabeeo-btntype1']} style={props.buttonStyle} id={props.id} onClick={props.onClick} >
+        <button className={styles['yp-btntype1']} style={props.buttonStyle} id={props.id} onClick={props.onClick} >
             {props.children}
         </button>
     )
@@ -15,7 +15,7 @@ export const Btntype1 = (props) => {
 
 export const Btntype2 = (props) => {
     return (
-        <button className={styles['dabeeo-btntype2']} style={props.buttonStyle} id={props.id} onClick={props.onClick} >
+        <button className={styles['yp-btntype2']} style={props.buttonStyle} id={props.id} onClick={props.onClick} >
             {props.children}
         </button>
     )

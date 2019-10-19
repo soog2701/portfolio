@@ -1,5 +1,5 @@
 $mainColor1 : #35414c;
-.dabeeo{
+.yp{
     /* text input */
     &-inputWrap.width100 {
         width: 100%;
@@ -176,6 +176,35 @@ $mainColor1 : #35414c;
         &:hover{
             font-weight: 500;
             background-color: #182d40;
+        }
+    }
+    /* yp-dialog */
+    &-dialog {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        padding: 26px;
+        margin-top: -(280px/2);
+        margin-left: -(276px/2);
+        height: 280px;
+        width: 276px;
+        border-radius: 8px;
+        background-color: #fff;
+        box-shadow: 0px 7px 20px 0px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        
+        &--alert-icon{
+            min-height: 10%;
+        }
+        
+        &--alert-msg{
+            min-height: 40%;
+        }
+
+        &--alert-btn{
+            position: absolute;
+            bottom: 26px;
+            width: calc(100% - (26px*2));
         }
     }
 }

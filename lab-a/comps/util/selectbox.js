@@ -48,7 +48,7 @@ export default function Selectbox (props) {
     // }, [])
     
     return (       
-        <div className={styles['dabeeo-selectWrap']} style={layoutStyle} >
+        <div className={styles['yp-selectWrap']} style={layoutStyle} >
             <Select options={props.options} id={props.id} styles={customStyles} onChange={props.onChange} value={props.value} />
         </div>
     )

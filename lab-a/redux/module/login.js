@@ -5,6 +5,7 @@ export const actionTypes = {
     SUCCESSLOGIN: 'SUCCESSLOGIN',
     FAILURELOGOUT: 'FAILURELOGOUT',
     SUCCESSLOGOUT: 'SUCCESSLOGOUT',
+    LOGOUT_REQUEST: 'LOGOUT_REQUEST'
 }
 // **** 액션 생섬함수 정의
 export const loginRequest = ({username, password}) => ({
@@ -12,7 +13,7 @@ export const loginRequest = ({username, password}) => ({
     username, 
     password
 });
-export const loginoutRequest = () => ({
+export const logoutRequest = () => ({
     type: actionTypes.LOGOUT_REQUEST    
 });
 export const failureLogin = error => ({

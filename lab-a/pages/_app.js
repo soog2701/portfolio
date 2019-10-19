@@ -9,36 +9,63 @@ import createStore from '../redux/store'
 import { appWithTranslation } from '../i18n'
 import Router, { useRouter, withRouter } from 'next/router'
 
-import Document, { Head, Main, NextScript } from 'next/document'
-//
+import { set } from '../util/http'
+
+import Layout from '../comps/layout'
+
 import redirect from '../util/redirect'
 
-import { Cookies, CookiesProvider } from 'react-cookie';
-const cookies = new Cookies();
+import cookies from 'next-cookies'
 
-const token = cookies.set('token', false);
+import { Cookies, CookiesProvider } from 'react-cookie';
+// const cookies = new Cookies();
+
+// const token = new Cookies();
+
+// const { token } = cookies('token');
 
 class AppWrap extends App {
     static async getInitialProps ({ Component, ctx }) {
       let pageProps = {}
-  
+      
       if (Component.getInitialProps) {
         pageProps = await Component.getInitialProps({ ctx })
         
       }  
       // console.log(pageProps)
       // console.warn("받은 props.", pageProps) 
+      const { token } = cookies(ctx);
       
-      if(!pageProps.isLogin) redirect(ctx, '/login');
+      // if(ctx.pathname === '/login') {
+      //   if (token !== 'false') {
+      //     redirect(ctx, '/');
+      //   }
+      // } else {
+      //   if (token === 'false') {
+      //     redirect(ctx, '/login');
+      //   }
+      // }
       
       return { pageProps }
-    }
+    }  
+
+    constructor(props) {
+      super(props)
+      // set interceptor
+      set.setupInterceptors(this.props.store);      
+    }  
+    
     render () { 
+      // console.log(token);
       const { Component, pageProps, store } = this.props;
       return (
         <CookiesProvider>
           <Provider store={store}>
-            <Component {...pageProps} />      
+            <Container>
+              <Layout nohead={pageProps.nohead} >
+                <Component {...pageProps} />
+              </Layout> 
+            </Container>
           </Provider>
         </CookiesProvider>
       )

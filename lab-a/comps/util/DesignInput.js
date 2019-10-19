@@ -9,7 +9,7 @@ export default function DesignInput(props) {
         if(props.getData) props.getData({[props.name] : event.target.value});
     }
     return (        
-        <div className={styles['dabeeo-inputWrap'] +' '+ (props.className? props.className : '')} style={props.style}>
+        <div className={styles['yp-inputWrap'] +' '+ (props.className? props.className : '')} style={props.style}>
             <input type={props.type||'text'} placeholder={props.placeholder} value={inputvalue} name={props.name} onChange={inputChange} />
             {props.children}
         </div>

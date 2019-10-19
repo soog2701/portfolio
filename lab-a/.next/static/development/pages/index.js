@@ -11,7 +11,10 @@ var NextI18Next = __webpack_require__(/*! next-i18next/dist/commonjs */ "./node_
 
 var options = {
   defaultLanguage: 'ko',
-  otherLanguages: ['en', 'ja']
+  otherLanguages: ['en', 'ja'],
+  localeSubpaths: {
+    de: 'ko'
+  }
 };
 module.exports = new NextI18Next(options);
 
@@ -91,6 +94,17 @@ module.exports = __webpack_require__(/*! core-js/library/fn/object/define-proper
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(/*! core-js/library/fn/object/get-own-property-descriptor */ "./node_modules/core-js/library/fn/object/get-own-property-descriptor.js");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/core-js/object/get-own-property-symbols.js":
+/*!****************************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/core-js/object/get-own-property-symbols.js ***!
+  \****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! core-js/library/fn/object/get-own-property-symbols */ "./node_modules/core-js/library/fn/object/get-own-property-symbols.js");
 
 /***/ }),
 
@@ -396,6 +410,79 @@ function _asyncToGenerator(fn) {
       _next(undefined);
     });
   };
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _defineProperty; });
+/* harmony import */ var _core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core-js/object/define-property */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js");
+/* harmony import */ var _core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__);
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    _core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0___default()(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectSpread.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/objectSpread.js ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _objectSpread; });
+/* harmony import */ var _core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core-js/object/get-own-property-descriptor */ "./node_modules/@babel/runtime-corejs2/core-js/object/get-own-property-descriptor.js");
+/* harmony import */ var _core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../core-js/object/get-own-property-symbols */ "./node_modules/@babel/runtime-corejs2/core-js/object/get-own-property-symbols.js");
+/* harmony import */ var _core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _core_js_object_keys__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../core-js/object/keys */ "./node_modules/@babel/runtime-corejs2/core-js/object/keys.js");
+/* harmony import */ var _core_js_object_keys__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_core_js_object_keys__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _defineProperty__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
+
+
+
+
+function _objectSpread(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+
+    var ownKeys = _core_js_object_keys__WEBPACK_IMPORTED_MODULE_2___default()(source);
+
+    if (typeof _core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_1___default.a === 'function') {
+      ownKeys = ownKeys.concat(_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_1___default()(source).filter(function (sym) {
+        return _core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_0___default()(source, sym).enumerable;
+      }));
+    }
+
+    ownKeys.forEach(function (key) {
+      Object(_defineProperty__WEBPACK_IMPORTED_MODULE_3__["default"])(target, key, source[key]);
+    });
+  }
+
+  return target;
 }
 
 /***/ }),
@@ -1781,6 +1868,19 @@ var $Object = __webpack_require__(/*! ../../modules/_core */ "./node_modules/cor
 module.exports = function getOwnPropertyDescriptor(it, key) {
   return $Object.getOwnPropertyDescriptor(it, key);
 };
+
+
+/***/ }),
+
+/***/ "./node_modules/core-js/library/fn/object/get-own-property-symbols.js":
+/*!****************************************************************************!*\
+  !*** ./node_modules/core-js/library/fn/object/get-own-property-symbols.js ***!
+  \****************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+__webpack_require__(/*! ../../modules/es6.symbol */ "./node_modules/core-js/library/modules/es6.symbol.js");
+module.exports = __webpack_require__(/*! ../../modules/_core */ "./node_modules/core-js/library/modules/_core.js").Object.getOwnPropertySymbols;
 
 
 /***/ }),
@@ -24655,54 +24755,48 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react-redux */ "./node_modules/react-redux/es/index.js");
 /* harmony import */ var _i18n__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../i18n */ "./i18n.js");
 /* harmony import */ var _i18n__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_i18n__WEBPACK_IMPORTED_MODULE_5__);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! next/router */ "./node_modules/next/dist/client/router.js");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_6__);
-/* harmony import */ var _static_css_app_scss__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../static/css/app.scss */ "./static/css/app.scss");
-/* harmony import */ var _static_css_app_scss__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_static_css_app_scss__WEBPACK_IMPORTED_MODULE_7__);
+/* harmony import */ var _static_css_app_scss__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../static/css/app.scss */ "./static/css/app.scss");
+/* harmony import */ var _static_css_app_scss__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_static_css_app_scss__WEBPACK_IMPORTED_MODULE_6__);
+/* harmony import */ var _redux_module_login__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../redux/module/login */ "./redux/module/login.js");
 
 
 var __jsx = react__WEBPACK_IMPORTED_MODULE_2___default.a.createElement;
- // import { connect } from 'react-redux'
 
 
- // import { startClock, tickClock } from '../redux/module/actions'
-
- //  Link, 
 
  // css
 
 
+ // import { Cookies } from 'react-cookie';
+// const cookies = new Cookies();
+// const token = cookies.get('token');
 
 var Main = function Main(_ref) {
-  var t = _ref.t;
-  return __jsx("div", null, __jsx("p", null, "Hello Next.js"), __jsx("span", null, t('h1')), __jsx("a", {
+  var t = _ref.t,
+      click = _ref.click;
+  return __jsx("div", {
+    className: "platform"
+  }, __jsx("p", null, "Hello Next.js"), __jsx("span", null, t('h1')), __jsx("a", {
     href: "#"
-  }, " ", t('change-locale')));
+  }, " ", t('change-locale')), __jsx("p", null, __jsx("a", {
+    href: "#",
+    onClick: click
+  }, "logout")));
 };
+
+var isLogin = false;
 
 var Index = function Index(props) {
   var t = props.t;
-  var dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_4__["useDispatch"])(); // const { store, isServer } = props.ctx;
-  // const t = store.dispatch(tickClock(props.ctx.isServer));
-  // const ts = useCallback(
-  //     () => {
-  //         dispatch(tickClock()); 
-  //         console.log(store.getState());
-  //     },
-  //     [dispatch]
-  // );
-  // ts();
+  var dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_4__["useDispatch"])();
 
-  var store = Object(react_redux__WEBPACK_IMPORTED_MODULE_4__["useStore"])();
+  var logout = function logout() {
+    dispatch(Object(_redux_module_login__WEBPACK_IMPORTED_MODULE_7__["logoutRequest"])());
+  };
 
-  var _store$getState = store.getState(),
-      login = _store$getState.login;
-
-  Object(react__WEBPACK_IMPORTED_MODULE_2__["useEffect"])(function () {// console.log('login===',!login.login)
-    // if(!login.login) Router.push(`/login`); 
-  });
   return __jsx(Main, {
-    t: t
+    t: t,
+    click: logout
   });
 };
 
@@ -24717,6 +24811,7 @@ function () {
         switch (_context.prev = _context.next) {
           case 0:
             return _context.abrupt("return", {
+              // isLogin: (token ? true : false),
               namespacesRequired: ['common']
             });
 
@@ -24740,7 +24835,136 @@ Index.propTypes = {
 
 /***/ }),
 
-/***/ 0:
+/***/ "./redux/module/login.js":
+/*!*******************************!*\
+  !*** ./redux/module/login.js ***!
+  \*******************************/
+/*! exports provided: actionTypes, loginRequest, logoutRequest, failureLogin, successLogin, failureLogout, successLogout, loginInitialState, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "actionTypes", function() { return actionTypes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loginRequest", function() { return loginRequest; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logoutRequest", function() { return logoutRequest; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "failureLogin", function() { return failureLogin; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "successLogin", function() { return successLogin; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "failureLogout", function() { return failureLogout; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "successLogout", function() { return successLogout; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loginInitialState", function() { return loginInitialState; });
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/objectSpread */ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectSpread.js");
+
+// 액션 타입 정의
+var actionTypes = {
+  LOGIN_REQUEST: 'LOGIN_REQUEST',
+  FAILURELOGIN: 'FAILURELOGIN',
+  SUCCESSLOGIN: 'SUCCESSLOGIN',
+  FAILURELOGOUT: 'FAILURELOGOUT',
+  SUCCESSLOGOUT: 'SUCCESSLOGOUT',
+  LOGOUT_REQUEST: 'LOGOUT_REQUEST'
+}; // **** 액션 생섬함수 정의
+
+var loginRequest = function loginRequest(_ref) {
+  var username = _ref.username,
+      password = _ref.password;
+  return {
+    type: actionTypes.LOGIN_REQUEST,
+    username: username,
+    password: password
+  };
+};
+var logoutRequest = function logoutRequest() {
+  return {
+    type: actionTypes.LOGOUT_REQUEST
+  };
+};
+var failureLogin = function failureLogin(error) {
+  return {
+    type: actionTypes.FAILURELOGIN,
+    error: error
+  };
+};
+var successLogin = function successLogin(_ref2) {
+  var token = _ref2.token,
+      refresh = _ref2.refresh;
+  return {
+    type: actionTypes.SUCCESSLOGIN,
+    token: token,
+    refresh: refresh
+  };
+};
+var failureLogout = function failureLogout(error) {
+  return {
+    type: actionTypes.FAILURELOGOUT,
+    error: error
+  };
+};
+var successLogout = function successLogout() {
+  return {
+    type: actionTypes.SUCCESSLOGOUT
+  };
+}; // **** 초기상태 정의
+
+var loginInitialState = {
+  login: false,
+  error: false,
+  token: '',
+  refresh: ''
+}; // **** 리듀서 작성
+
+function reducer() {
+  var state = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : loginInitialState;
+  var action = arguments.length > 1 ? arguments[1] : undefined;
+  var token = action.token,
+      refresh = action.refresh;
+
+  switch (action.type) {
+    case actionTypes.LOGIN_REQUEST:
+      return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
+        error: action.error,
+        login: 'LOGIN_REQUEST'
+      });
+
+    case actionTypes.LOGOUT_REQUEST:
+      return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
+        error: action.error,
+        login: 'LOGOUT_REQUEST'
+      });
+
+    case actionTypes.FAILURELOGIN:
+      return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
+        error: action.error,
+        login: 'FAILURELOGIN'
+      });
+
+    case actionTypes.SUCCESSLOGIN:
+      return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
+        token: token,
+        refresh: refresh,
+        login: 'SUCCESSLOGIN'
+      });
+
+    case actionTypes.FAILURELOGOUT:
+      return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
+        error: action.error,
+        login: 'FAILURELOGOUT'
+      });
+
+    case actionTypes.SUCCESSLOGOUT:
+      return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
+        login: 'SUCCESSLOGOUT'
+      });
+
+    default:
+      return state;
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (reducer);
+
+/***/ }),
+
+/***/ 1:
 /*!**************************************************************************************************************************************!*\
   !*** multi next-client-pages-loader?page=%2F&absolutePagePath=C%3A%5Cinetpub%5Cwwwroot%5Cproject%5Cyeagil_1_repo%5Cpages%5Cindex.js ***!
   \**************************************************************************************************************************************/
@@ -24763,5 +24987,5 @@ module.exports = dll_129a35c7ec57967eb265;
 
 /***/ })
 
-},[[0,"static/runtime/webpack.js","styles"]]]);
+},[[1,"static/runtime/webpack.js","styles"]]]);
 //# sourceMappingURL=index.js.map

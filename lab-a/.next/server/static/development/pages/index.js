@@ -104,7 +104,10 @@ const NextI18Next = __webpack_require__(/*! next-i18next/dist/commonjs */ "./nod
 
 const options = {
   defaultLanguage: 'ko',
-  otherLanguages: ['en', 'ja']
+  otherLanguages: ['en', 'ja'],
+  localeSubpaths: {
+    de: 'ko'
+  }
 };
 module.exports = new NextI18Next(options);
 
@@ -165,6 +168,17 @@ module.exports = __webpack_require__(/*! core-js/library/fn/object/get-own-prope
 
 /***/ }),
 
+/***/ "./node_modules/@babel/runtime-corejs2/core-js/object/get-own-property-symbols.js":
+/*!****************************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/core-js/object/get-own-property-symbols.js ***!
+  \****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+module.exports = __webpack_require__(/*! core-js/library/fn/object/get-own-property-symbols */ "core-js/library/fn/object/get-own-property-symbols");
+
+/***/ }),
+
 /***/ "./node_modules/@babel/runtime-corejs2/core-js/object/keys.js":
 /*!********************************************************************!*\
   !*** ./node_modules/@babel/runtime-corejs2/core-js/object/keys.js ***!
@@ -184,6 +198,79 @@ module.exports = __webpack_require__(/*! core-js/library/fn/object/keys */ "core
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports = __webpack_require__(/*! core-js/library/fn/promise */ "core-js/library/fn/promise");
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js":
+/*!***************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js ***!
+  \***************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _defineProperty; });
+/* harmony import */ var _core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core-js/object/define-property */ "./node_modules/@babel/runtime-corejs2/core-js/object/define-property.js");
+/* harmony import */ var _core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0__);
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    _core_js_object_define_property__WEBPACK_IMPORTED_MODULE_0___default()(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+/***/ }),
+
+/***/ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectSpread.js":
+/*!*************************************************************************!*\
+  !*** ./node_modules/@babel/runtime-corejs2/helpers/esm/objectSpread.js ***!
+  \*************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return _objectSpread; });
+/* harmony import */ var _core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../core-js/object/get-own-property-descriptor */ "./node_modules/@babel/runtime-corejs2/core-js/object/get-own-property-descriptor.js");
+/* harmony import */ var _core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../core-js/object/get-own-property-symbols */ "./node_modules/@babel/runtime-corejs2/core-js/object/get-own-property-symbols.js");
+/* harmony import */ var _core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _core_js_object_keys__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../core-js/object/keys */ "./node_modules/@babel/runtime-corejs2/core-js/object/keys.js");
+/* harmony import */ var _core_js_object_keys__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_core_js_object_keys__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _defineProperty__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./defineProperty */ "./node_modules/@babel/runtime-corejs2/helpers/esm/defineProperty.js");
+
+
+
+
+function _objectSpread(target) {
+  for (var i = 1; i < arguments.length; i++) {
+    var source = arguments[i] != null ? arguments[i] : {};
+
+    var ownKeys = _core_js_object_keys__WEBPACK_IMPORTED_MODULE_2___default()(source);
+
+    if (typeof _core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_1___default.a === 'function') {
+      ownKeys = ownKeys.concat(_core_js_object_get_own_property_symbols__WEBPACK_IMPORTED_MODULE_1___default()(source).filter(function (sym) {
+        return _core_js_object_get_own_property_descriptor__WEBPACK_IMPORTED_MODULE_0___default()(source, sym).enumerable;
+      }));
+    }
+
+    ownKeys.forEach(function (key) {
+      Object(_defineProperty__WEBPACK_IMPORTED_MODULE_3__["default"])(target, key, source[key]);
+    });
+  }
+
+  return target;
+}
 
 /***/ }),
 
@@ -7509,63 +7596,180 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_redux__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(react_redux__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _i18n__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../i18n */ "./i18n.js");
 /* harmony import */ var _i18n__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_i18n__WEBPACK_IMPORTED_MODULE_3__);
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! next/router */ "next/router");
-/* harmony import */ var next_router__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(next_router__WEBPACK_IMPORTED_MODULE_4__);
-/* harmony import */ var _static_css_app_scss__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../static/css/app.scss */ "./static/css/app.scss");
-/* harmony import */ var _static_css_app_scss__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(_static_css_app_scss__WEBPACK_IMPORTED_MODULE_5__);
+/* harmony import */ var _static_css_app_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ../static/css/app.scss */ "./static/css/app.scss");
+/* harmony import */ var _static_css_app_scss__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_static_css_app_scss__WEBPACK_IMPORTED_MODULE_4__);
+/* harmony import */ var _redux_module_login__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ../redux/module/login */ "./redux/module/login.js");
 var __jsx = react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement;
- // import { connect } from 'react-redux'
 
 
- // import { startClock, tickClock } from '../redux/module/actions'
-
- //  Link, 
 
  // css
 
 
+ // import { Cookies } from 'react-cookie';
+// const cookies = new Cookies();
+// const token = cookies.get('token');
 
 const Main = ({
-  t
-}) => __jsx("div", null, __jsx("p", null, "Hello Next.js"), __jsx("span", null, t('h1')), __jsx("a", {
+  t,
+  click
+}) => __jsx("div", {
+  className: "platform"
+}, __jsx("p", null, "Hello Next.js"), __jsx("span", null, t('h1')), __jsx("a", {
   href: "#"
-}, " ", t('change-locale')));
+}, " ", t('change-locale')), __jsx("p", null, __jsx("a", {
+  href: "#",
+  onClick: click
+}, "logout")));
+
+let isLogin = false;
 
 const Index = props => {
   const {
     t
   } = props;
-  const dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["useDispatch"])(); // const { store, isServer } = props.ctx;
-  // const t = store.dispatch(tickClock(props.ctx.isServer));
-  // const ts = useCallback(
-  //     () => {
-  //         dispatch(tickClock()); 
-  //         console.log(store.getState());
-  //     },
-  //     [dispatch]
-  // );
-  // ts();
+  const dispatch = Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["useDispatch"])();
 
-  const store = Object(react_redux__WEBPACK_IMPORTED_MODULE_2__["useStore"])();
-  const {
-    login
-  } = store.getState();
-  Object(react__WEBPACK_IMPORTED_MODULE_0__["useEffect"])(() => {// console.log('login===',!login.login)
-    // if(!login.login) Router.push(`/login`); 
-  });
+  const logout = () => {
+    dispatch(Object(_redux_module_login__WEBPACK_IMPORTED_MODULE_5__["logoutRequest"])());
+  };
+
   return __jsx(Main, {
-    t: t
+    t: t,
+    click: logout
   });
 };
 
-Index.getInitialProps = async res => ({
-  namespacesRequired: ['common']
-});
+Index.getInitialProps = async res => {
+  return {
+    // isLogin: (token ? true : false),
+    namespacesRequired: ['common']
+  };
+};
 
 Index.propTypes = {
   t: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.func.isRequired
 };
 /* harmony default export */ __webpack_exports__["default"] = (Object(_i18n__WEBPACK_IMPORTED_MODULE_3__["withTranslation"])('common')(Index));
+
+/***/ }),
+
+/***/ "./redux/module/login.js":
+/*!*******************************!*\
+  !*** ./redux/module/login.js ***!
+  \*******************************/
+/*! exports provided: actionTypes, loginRequest, logoutRequest, failureLogin, successLogin, failureLogout, successLogout, loginInitialState, default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "actionTypes", function() { return actionTypes; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loginRequest", function() { return loginRequest; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "logoutRequest", function() { return logoutRequest; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "failureLogin", function() { return failureLogin; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "successLogin", function() { return successLogin; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "failureLogout", function() { return failureLogout; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "successLogout", function() { return successLogout; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "loginInitialState", function() { return loginInitialState; });
+/* harmony import */ var _babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime-corejs2/helpers/esm/objectSpread */ "./node_modules/@babel/runtime-corejs2/helpers/esm/objectSpread.js");
+
+// 액션 타입 정의
+const actionTypes = {
+  LOGIN_REQUEST: 'LOGIN_REQUEST',
+  FAILURELOGIN: 'FAILURELOGIN',
+  SUCCESSLOGIN: 'SUCCESSLOGIN',
+  FAILURELOGOUT: 'FAILURELOGOUT',
+  SUCCESSLOGOUT: 'SUCCESSLOGOUT',
+  LOGOUT_REQUEST: 'LOGOUT_REQUEST'
+}; // **** 액션 생섬함수 정의
+
+const loginRequest = ({
+  username,
+  password
+}) => ({
+  type: actionTypes.LOGIN_REQUEST,
+  username,
+  password
+});
+const logoutRequest = () => ({
+  type: actionTypes.LOGOUT_REQUEST
+});
+const failureLogin = error => ({
+  type: actionTypes.FAILURELOGIN,
+  error
+});
+const successLogin = ({
+  token,
+  refresh
+}) => ({
+  type: actionTypes.SUCCESSLOGIN,
+  token,
+  refresh
+});
+const failureLogout = error => ({
+  type: actionTypes.FAILURELOGOUT,
+  error
+});
+const successLogout = () => ({
+  type: actionTypes.SUCCESSLOGOUT
+}); // **** 초기상태 정의
+
+const loginInitialState = {
+  login: false,
+  error: false,
+  token: '',
+  refresh: ''
+}; // **** 리듀서 작성
+
+function reducer(state = loginInitialState, action) {
+  const {
+    token,
+    refresh
+  } = action;
+
+  switch (action.type) {
+    case actionTypes.LOGIN_REQUEST:
+      return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
+        error: action.error,
+        login: 'LOGIN_REQUEST'
+      });
+
+    case actionTypes.LOGOUT_REQUEST:
+      return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
+        error: action.error,
+        login: 'LOGOUT_REQUEST'
+      });
+
+    case actionTypes.FAILURELOGIN:
+      return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
+        error: action.error,
+        login: 'FAILURELOGIN'
+      });
+
+    case actionTypes.SUCCESSLOGIN:
+      return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
+        token,
+        refresh,
+        login: 'SUCCESSLOGIN'
+      });
+
+    case actionTypes.FAILURELOGOUT:
+      return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
+        error: action.error,
+        login: 'FAILURELOGOUT'
+      });
+
+    case actionTypes.SUCCESSLOGOUT:
+      return Object(_babel_runtime_corejs2_helpers_esm_objectSpread__WEBPACK_IMPORTED_MODULE_0__["default"])({}, state, {
+        login: 'SUCCESSLOGOUT'
+      });
+
+    default:
+      return state;
+  }
+}
+
+/* harmony default export */ __webpack_exports__["default"] = (reducer);
 
 /***/ }),
 
@@ -7576,7 +7780,20 @@ Index.propTypes = {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-
+module.exports = {
+	"platform": "platform___3pDat",
+	"platform-wrap": "platform-wrap___1ghrg",
+	"platform--loginWrap": "platform--loginWrap___1muQF",
+	"platform--loginWrap-box": "platform--loginWrap-box___3nNyM",
+	"platform--loginWrap-content": "platform--loginWrap-content___10uqA",
+	"left": "left___Bj1yI",
+	"platform--loginWrap-lang": "platform--loginWrap-lang___2BIYp",
+	"platform--loginWrap-logo": "platform--loginWrap-logo___3Sel-",
+	"platform--loginWrap-logininfo": "platform--loginWrap-logininfo___qdqHR",
+	"platform--loginWrap-loginbtn": "platform--loginWrap-loginbtn___1Mume",
+	"yp-selectWrap": "yp-selectWrap___LwpDw",
+	"platform--loginWrap--content": "platform--loginWrap--content___2apKO"
+};
 
 /***/ }),
 
@@ -7644,6 +7861,17 @@ module.exports = require("core-js/library/fn/object/define-property");
 /***/ (function(module, exports) {
 
 module.exports = require("core-js/library/fn/object/get-own-property-descriptor");
+
+/***/ }),
+
+/***/ "core-js/library/fn/object/get-own-property-symbols":
+/*!*********************************************************************!*\
+  !*** external "core-js/library/fn/object/get-own-property-symbols" ***!
+  \*********************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = require("core-js/library/fn/object/get-own-property-symbols");
 
 /***/ }),
 

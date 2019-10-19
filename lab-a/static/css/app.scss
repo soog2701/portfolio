@@ -20,7 +20,7 @@ a {
     &--loginWrap {
         display: flex;
         align-items: center;
-        height: 100%;
+        height: 100vh;
         
         &-box{
             margin: 0 auto;
@@ -81,7 +81,7 @@ a {
             width: 100%;
             height: 40px;
         }
-        .dabeeo-selectWrap + &--content{
+        .yp-selectWrap + &--content{
             content: '';
             display: block;
             clear: both;
@@ -91,11 +91,11 @@ a {
 }
 
 /* scrollbar */
-::-webkit-scrollbar{height:16px;width:15px}
-::-webkit-scrollbar-button{height:0;width:0}
-::-webkit-scrollbar-thumb{background-color:#c2c2c2;background-clip:padding-box;border:solid transparent;border-width:1px 1px 1px 6px;}
-::-webkit-scrollbar-corner{background:transparent}
-::-webkit-scrollbar-track{background-clip:padding-box;background-color:transparent;}
-::-webkit-scrollbar-track-piece{background-clip:padding-box;background-color:transparent;margin:4px 0 4px;}
-::-webkit-scrollbar-thumb{border-width:1px 3px 1px 4px;border-radius: 7px;}
-::-webkit-scrollbar-corner{background-clip:padding-box;background-color:#e8e8e9;border:solid transparent;border-width:0px 0 0 0px;}
+// ::-webkit-scrollbar{height:16px;width:15px}
+// ::-webkit-scrollbar-button{height:0;width:0}
+// ::-webkit-scrollbar-thumb{background-color:#c2c2c2;background-clip:padding-box;border:solid transparent;border-width:1px 1px 1px 6px;}
+// ::-webkit-scrollbar-corner{background:transparent}
+// ::-webkit-scrollbar-track{background-clip:padding-box;background-color:transparent;}
+// ::-webkit-scrollbar-track-piece{background-clip:padding-box;background-color:transparent;margin:4px 0 4px;}
+// ::-webkit-scrollbar-thumb{border-width:1px 3px 1px 4px;border-radius: 7px;}
+// ::-webkit-scrollbar-corner{background-clip:padding-box;background-color:#e8e8e9;border:solid transparent;border-width:0px 0 0 0px;}

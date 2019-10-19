@@ -1,0 +1,11 @@
+$pageWidth: 1400px;
+.layout{
+    &-head {
+        margin: auto;
+        width: #{$pageWidth};
+    }
+    &-footer{
+        margin: auto;
+        width: #{$pageWidth};
+    }
+}
