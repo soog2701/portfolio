@@ -1,8 +1,102 @@
-$pageWidth: 1400px;
+$pageWidth: 1200px;
 .layout{
     &-head {
         margin: auto;
-        width: #{$pageWidth};
+        width: 100%;
+        &-wrap{
+            margin: auto;
+            width: #{$pageWidth};
+
+            &::after{
+                content: '';
+                display: block;
+                clear: both;
+            }
+        }
+        &--top{
+            height: 50px;
+            border-bottom: 1px solid gray;
+            background-color: white;
+
+            &-left{
+                float: left;
+            }
+            &-right{
+                float: right;
+                li{
+                    margin-right: 10px;
+                }
+                a{
+                    text-decoration: none;
+                    color: black;
+                }
+            }
+        }
+
+        &--bottom {
+            height: 130px;
+            background-color: #303a50;
+
+            input{
+                height: 60px;
+                font-size: 24px;
+                
+            }
+            &--list{
+                color: white;
+                li{
+                    height: 50px;
+                    line-height: 50px;
+                    margin-right: 10px;
+                }
+                a{
+                    text-decoration: none;
+                    color:white;
+                }
+                a:hover{
+                    color:white;
+                }
+            }
+            &--search-left{
+                width: 370px;
+                padding-left: 60px;
+                border-top-left-radius: 5px;
+                border-bottom-left-radius: 5px;
+                border: none;
+                border-right: 1px solid gray;
+                box-sizing: border-box;
+            }
+            &--search-right{
+                width: 750px;
+                padding-left: 60px;
+                border: none;
+                border-top-right-radius: 5px;
+                border-bottom-right-radius: 5px;
+                box-sizing: border-box;
+            }
+            &--search{
+                width: 70px;
+                height: 60px;
+                margin-left: 10px;
+                vertical-align: top;
+                border: none;
+                border-radius: 5px;
+                background-color: #FF8000;
+            }
+        }
+        ul{
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+        li{
+            float: left;
+            list-style: none;
+            padding: 0;
+        }
+        li:last-child{
+            margin-right: 0;
+        }
     }
     &-footer{
         margin: auto;
