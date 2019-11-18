@@ -89,6 +89,25 @@ a {
     }
     
 }
+/* main */
+.main{
+    width: 1200px;
+    height: 100%;
+    margin: auto;
+
+    &-top{
+        &--left {
+            float: left;
+            li{
+                float: left;
+                list-style: none;
+            }
+        }
+        &--right {
+            float: right;
+        }
+    }
+}
 
 /* scrollbar */
 // ::-webkit-scrollbar{height:16px;width:15px}
