@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap');
 $lightgray : #82919b;
+$linegray : #8595a040;
 $fontSizeSmall: 13px;
 $fontSizeMiddle: 14px;
 body, div, p {
@@ -96,16 +97,65 @@ a {
     margin: auto;
 
     &-top{
+        height: 50px;
+        padding-top:25px;
+        font-size: 14px;
+        border-bottom: 1px solid #{$linegray};
+        box-sizing: border-box;
+
+        &:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
         &--left {
             float: left;
-            li{
-                float: left;
-                list-style: none;
-            }
         }
         &--right {
             float: right;
         }
+    }
+    &-middle{
+        margin-top: 20px;
+        height: 320px;
+        
+        &:after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        &--left {
+            float: left;
+            width: 800px;
+            height: 100%;
+            background-color: lightskyblue;
+        }
+        &--right {
+            float: right;
+            width: 380px;
+            height: 100%;
+            border: 1px solid #{$linegray};
+        }
+        &--air {
+            padding: 12px;
+            &-box{
+                span{
+                    display: block;
+                }
+                >div{
+                    display: inline-block;
+                }
+            }
+        }
+    }
+    ul{
+        margin:0;
+        padding:0;
+        overflow: hidden;
+    }
+    li{
+        float: left;
+        list-style: none;
     }
 }
 
