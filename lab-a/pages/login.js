@@ -62,8 +62,9 @@ const Login = (props) => {
     }, []);
     
 	return (
-        show ? (<div ref={wrapRef} className={styles['platform--loginWrap']} >
-            <div className={styles['platform--loginWrap-box']}>
+        show ? (
+        // <div ref={wrapRef} className={styles['platform--loginWrap']} >
+            <div className={styles['platform--loginWrap-box']} style={{position: 'absolute', top:'20%', left:'50%', marginLeft: '-250px',}}>
                 <div className={styles['platform--loginWrap-lang']}>
                     <Selectbox id="select-test" value={selectedOptions} options={options} onChange={chageLang} />
                 </div>
@@ -88,7 +89,8 @@ const Login = (props) => {
                     </div>
                 </div>
             </div>            
-        </div>) : ''
+        // </div>
+        ) : ''
 	)
 }
 

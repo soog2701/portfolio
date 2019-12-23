@@ -3,26 +3,38 @@ $pageWidth: 1200px;
     &-head {
         margin: auto;
         width: 100%;
+
         &-wrap{
-            margin: auto;
+            display: flex;
+            margin: auto;            
             width: #{$pageWidth};
+            height: 100%;
+            align-items: center;
 
             &::after{
                 content: '';
                 display: block;
                 clear: both;
             }
+            
+        }
+        .column{
+            flex-direction: column;
         }
         &--top{
-            height: 50px;
+            
+            height: 50px;            
             border-bottom: 1px solid gray;
             background-color: white;
 
             &-left{
-                float: left;
+                display: flex;
+                // float: left;
             }
             &-right{
-                float: right;
+                display: flex;
+                // float: right;
+                margin-left: auto;
                 li{
                     margin-right: 10px;
                 }

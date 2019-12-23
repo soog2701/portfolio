@@ -4,7 +4,7 @@ import styles from "../static/css/layout.scss"
 
 
 export default function LayoutHead (props) {    
-    
+    const { goLogin } = props;
     return (       
         <div className={styles['layout-head']}>
             <div className={styles['layout-head--top']}>
@@ -17,7 +17,7 @@ export default function LayoutHead (props) {
                         <ul>
                             <li><a href="#">일정만들기</a></li>
                             <li><a href="#">사용법</a></li>
-                            <li><a href="#">로그인</a></li>
+                            <li><a href="#" onClick={goLogin}>로그인</a></li>
                             <li><a href="#">페이스북</a></li>
                             <li><a href="#">구글</a></li>
                         </ul>
@@ -26,7 +26,7 @@ export default function LayoutHead (props) {
             </div>
             <div className={styles['layout-head--bottom']}>
                 {/* 하단 */}
-                <div className={styles['layout-head-wrap']}>
+                <div className={styles['layout-head-wrap'] +' '+ styles['column'] }>
                     <div className={styles['layout-head--bottom--list']}>
                         <ul>
                             <li><a href="#">추천콘텐츠</a></li>

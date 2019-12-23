@@ -61,11 +61,11 @@ class AppWrap extends App {
       return (
         <CookiesProvider>
           <Provider store={store}>
-            <Container>
+            {/* <Container> */}
               <Layout nohead={pageProps.nohead} >
                 <Component {...pageProps} />
               </Layout> 
-            </Container>
+            {/* </Container> */}
           </Provider>
         </CookiesProvider>
       )
