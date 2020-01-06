@@ -50,7 +50,7 @@ const Login = (props) => {
 
     const dispatch = useDispatch();
     let goLogin = (e) => {        
-        dispatch(loginRequest({username:userid, password:userpassword}));         
+        // dispatch(loginRequest({username:userid, password:userpassword}));         
     }
     let chageLang = (event) => {
         setSelectedOptions(event);

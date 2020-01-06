@@ -18,11 +18,17 @@ import redirect from '../util/redirect'
 import cookies from 'next-cookies'
 
 import { Cookies, CookiesProvider } from 'react-cookie';
+
+
 // const cookies = new Cookies();
 
 // const token = new Cookies();
 
 // const { token } = cookies('token');
+
+// import io from 'socket.io-client'
+import '../asserts/styles.less'
+
 
 class AppWrap extends App {
     static async getInitialProps ({ Component, ctx }) {
@@ -52,7 +58,10 @@ class AppWrap extends App {
     constructor(props) {
       super(props)
       // set interceptor
-      set.setupInterceptors(this.props.store);      
+      set.setupInterceptors(this.props.store);
+      // this.state = {
+      //   socket : null
+      // }
     }  
     
     render () { 
