@@ -2,7 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import { useSelector, useDispatch, useStore } from "react-redux"
 
-import { Input, Radio  } from 'antd';
+import { Input, Radio, Select, Button } from 'antd';
 
 // css
 import styles from "../static/css/app.scss";
@@ -75,21 +75,21 @@ const Main = ({ t , click }) => (
                     <div className={styles['main-middle--air-box']}>
                         <div>
                             <span>성인</span>
-                            <select></select>
+                            <Select ></Select >
                         </div>
                         <div style={{'marginLeft':'10px'}}>
                             <span>유소아</span>
-                            <select></select>
+                            <Select ></Select >
                         </div>                        
                     </div>
                     <div className={styles['main-middle--air-box']}>
                         <div>
                             <span>좌석등급</span>
-                            <select></select>
+                            <Select ></Select >
                         </div>
                     </div>
                     <div className={styles['main-middle--air-box']}>
-                        <button>항공권검색</button>
+                        <Button>항공권검색</Button>
                     </div>
                 </div>
             </div>

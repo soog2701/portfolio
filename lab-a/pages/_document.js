@@ -23,6 +23,7 @@ export default class MyDocument extends Document {
             `}</style>
             <link rel="icon" type="image/x-icon" href="../static/favicon.ico" />
             {/* <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet"></link> */}
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/antd/3.25.3/antd.css" />       
         </Head>
         <body className={styles.platform}>            
           <Main />
