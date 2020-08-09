@@ -1,0 +1,114 @@
+/**
+ * icon 
+ */
+
+@import "../color.scss";
+@import "../mixin.scss";
+
+.assets {
+    display: inline-block;
+    box-sizing: border-box;
+    &-search {        
+        @include assets-style(16px, 16px, "../images/icon/btn_search-3x.png");       
+    }
+    &-home {
+        @include assets-style(14px, 13px, "../images/icon/btn_home-3x.png");
+    }
+    &-add {
+        @include assets-style(12px, 12px, "../images/icon/btn_add-2-3x.png");
+    }
+    &-reset {
+        @include assets-style(18px, 15px, "../images/icon/btn_reset-3x.png");
+    }
+    &-edit {
+        @include assets-style(12px, 12px, "../images/icon/icon_edit-3x.png", "../images/icon/icon_edit_on-3x.png");
+    }
+    &-modified{
+        @include assets-style(14px, 14px, "../images/icon/icon_Edit_article-3x.png", "../images/icon/icon_Edit_article_on-3x.png", "../images/icon/icon_Edit_article_d-3x.png");
+    }
+    &-white-add {
+        @include assets-style(12px, 12px, "../images/icon/btn_add_02-3x.png");
+    }
+    &-excel {
+        @include assets-style(15px, 18px, "../images/icon/btn_excel-3x.png", "../images/icon/btn_excel_d_on-3x.png");
+    }
+    &-lock {
+        @include assets-style(10px, 13px, "../images/icon/icon_password-3x.png", "../images/icon/icon_password_on-3x.png");
+    }
+    &-list {
+        @include assets-style(12px, 11px, "../images/icon/btn_list-3x.png", "../images/icon/btn_list_on-3x.png");
+    }
+    &-blueadd{
+        @include assets-style(18px, 18px, "../images/icon/icon_add-3x.png", "../images/icon/icon_add_on-3x.png", "../images/icon/icon_add-1-3x.png");
+    }
+    &-yellowadd{
+        @include assets-style(12px, 12px, "../images/icon/icon_add-3-3x.png", "../images/icon/icon_add_on-1-3x.png", "../images/icon/icon_add_d-1-3x.png");
+    }
+    &-timeset{
+        @include assets-style(20px, 20px, "../images/icon/btn_timeset-3x.png");
+    }
+    &-more{
+        @include assets-style(5px, 19px, "../images/icon/btn_list_more-3x.png", "../images/icon/btn_list_more_hover-3x.png");
+    }
+    &-delete{
+        @include assets-style(12px, 12px, "../images/icon/btn_delete-3x.png", "../images/icon/icon_delete_on-3x.png", "../images/icon/icon_delete_dis-3x.png");
+    }
+    &-calendar {
+        @include assets-style(18px, 19px, "../images/icon/btn_time_chalender-3x.png");
+    }
+    &-gopage {
+        @include assets-style(13px, 10px, "../images/icon/icon_go-3x.png", "../images/icon/icon_go_on-3x.png");
+    }
+    &-layerdelete{
+        @include assets-style(24px, 24px, "../images/icon/btn_layer_delete-3x.png" );
+    }
+    &-file{
+        @include assets-style(18px, 14px, "../images/icon/btn_cad_file-3x.png", "../images/icon/btn_cad_file-3x.png" , "../images/icon/btn_cad_file_d-3x.png" );
+    }
+    &-filedel{
+        @include assets-style(20px, 20px, '../images/common/btn_delete_1-3x.png');
+        cursor: pointer;
+    }
+    &-fileclip{
+        @include assets-style(16px, 16px, '../images/icon/icon_attachment-3x.png');
+    }
+    &-filelink{
+        @include assets-style(12px, 12px, '../images/icon/icon_url-3x.png');
+    }
+    &-poi-regi{
+        @include assets-style(9px, 11px, '../images/icon/btn_poi_regi-3x.png', '../images/icon/btn_poi_regi_on-3x.png', '../images/icon/btn_poi_regi_dis-3x.png');
+    }
+    &-ar-regi{
+        @include assets-style(9px, 11px, '../images/icon/btn_ar_regi-3x.png', '../images/icon/btn_ar_regi_on-3x.png', '../images/icon/btn_ar_regi_dis-3x.png');
+    }
+    &-register{
+        @include assets-style(13px, 13px, '../images/icon/btn_register-3x.png','../images/icon/btn_register_on-3x.png','../images/icon/btn_register_dis-3x.png');
+    }
+    &-cir-cancel{
+        @include assets-style(18px, 18px, '../images/icon/btn_poi_cancle-3x.png');
+    }
+    &-line-cancel{
+        @include assets-style(20px, 20px, '../images/icon/btn_stair_cancle-3x.png', '../images/icon/btn_stair_cancle_on-3x.png');
+    }
+    &-load{
+        @include assets-style(11px, 13px, '../images/icon/icon_load-3x.png', '../images/icon/icon_load_on-3x.png');
+    }
+    &-check{
+        @include assets-style(20px, 20px, '../images/icon/btn_ok_w-3x.png');
+    }
+    &-userpage{
+        @include assets-style(10px, 12px, "../images/icon/icon_userpage-3x.png", "../images/icon/icon_userpage_on-3x.png");
+    }
+    &-info{
+        @include assets-style(15px, 15px, "../images/icon/btn_info-3x.png");
+    }
+    &-list-down{
+        @include assets-style(16px, 10px, "../images/icon/btn_list_dropdown-3x.png");
+    }
+    &-stair-order{
+        @include assets-style(20px, 20px, '../images/editor/btn_stair_order-3x.png', '../images/editor/btn_stair_order_on-3x.png');        
+    }
+    &-grayadd{
+        @include assets-style(12px, 12px, "../images/icon/btn_p_add-3x.png", "../images/icon/icon_add_on-1-3x.png", "../images/icon/icon_add_d-1-3x.png");
+    }
+}

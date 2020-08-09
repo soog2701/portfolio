@@ -1,0 +1,91 @@
+/* mixin */
+@mixin content-width {
+    max-width: 1300px;
+    box-sizing: border-box;
+}
+@mixin content-float {
+    &::after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+    .left {
+        float: left;
+    }
+    .right {
+        float: right;
+    }
+}
+@mixin content-rowCenter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+@mixin content-bgCenter {
+    background-position: center;
+    background-repeat: no-repeat;
+}
+@mixin content-flexCenter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@mixin assets-style($w, $h, $image, $himage:null, $dimage:null) {
+    width: $w;
+    height: $h;
+    background-size: $w $h;
+    background-repeat: no-repeat;
+    background-image: url('#{$image}');
+    &.on {
+        @if ($himage) { background-image: url('#{$himage}'); }
+    }
+    &.disabled {
+        @if ($dimage) { background-image: url('#{$dimage}'); }
+    }
+}
+@mixin ellipsis {
+    display: inline-block;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+@mixin subpage-edit-table{
+    table{        
+        width: 100%;
+        .blind{
+            height: 0;
+            padding: 0;
+            visibility: hidden;
+        }        
+        tbody{            
+            tr {
+                height: 46px;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                th {
+                    padding-top: 12px;
+                    font-size: 14px;
+                    color: $textgray1;
+                    font-weight: normal;
+                    vertical-align: top;    
+                }
+                td{                    
+                    padding-top: 4px;
+                    padding-left: 0;
+                    font-size: 14px;
+                    color: $textgray2;
+                    vertical-align: top; 
+                }
+                .assets{
+                    vertical-align: middle;
+                }
+            }
+        }
+        .onlytext{
+            padding-top: 12px;
+            padding-left: 10px;
+            // vertical-align: initial; 
+        }
+    }
+}

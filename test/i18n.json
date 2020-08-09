@@ -1,0 +1,14 @@
+{
+    "allLanguages": ["en", "ko", "ja"],
+    "defaultLanguage": "ko",
+    "currentPagesDir": "pages_",
+    "defaultLangRedirect": "root",
+    "finalPagesDir": "pages",
+    "localesPath": "locales", 
+    "pages": {
+      "*": ["common"],
+      "/": ["home"],
+      "/dashboard": ["home"],
+      "rgx:^/more-examples": ["more-examples"]
+    }
+  }

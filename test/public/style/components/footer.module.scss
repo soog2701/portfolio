@@ -1,0 +1,57 @@
+/**
+* Footer
+*/
+@import "../color.scss";
+@import "../mixin.scss";
+.platform--footer {
+    height: 150px;
+    padding-top: 40px;
+    text-align: center;
+    background-color: $textgray1;
+    &--wrap {
+        margin: auto;
+        font-size: 13px;
+        color: $textgray5;
+    }
+    &--util {
+        a {
+            color: $textgray2;
+            text-decoration: none;
+        }
+        > ul {
+            min-width: 0;
+            overflow: hidden;
+            display: inline-block;
+            margin-bottom: 10px;
+            @include content-float;
+            li {
+                float: left;
+                line-height: 20px;
+                &:not(:first-child) {
+                    padding-left: 20px;
+                }
+                &:not(:last-child):after {
+                    content: "";
+                    display: inline-block;
+                    height: 14px;
+                    width: 1px;
+                    margin-left: 20px;
+                    vertical-align: middle;
+                    background-color: #586979;
+                }
+            }
+        }
+    }
+    &--copyright p {
+        display: inline-block;
+        margin-left: 24px;
+        margin-bottom: 0;
+        color: #586979;
+    }
+    &--logo {
+        width: 150px;
+        height: 28px;
+        border: 0;
+        vertical-align: middle;
+    }
+}

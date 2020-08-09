@@ -1,0 +1,304 @@
+/* color */
+$backgroundColor: #f7f9fa;
+$linegray: #d7dcde;
+$gray1: #d7dcdf;
+$gray2: #fafafa;
+$gray3: #e9f1f5;
+$gray4: #adc2cc;
+$gray5: #c7c9d6;
+$gray6: #eff7fa;
+
+$textgray1: #35414c;
+$textgray2: #82919b;
+$textgray3: #424f5c;
+$textgray4: #5a6a7b;
+$textgray5: #8ea0b2;
+
+$emcolor1: #29b3f0;
+$emcolor2: #1c252e;
+$emcolor3: #ffc80f;
+$emcolor4: #f05329;
+$emcolor5: #ffb50f;
+$emcolor6: #188fce;
+$active1: #182d40;
+$disabled1 : #e8e9ec;
+
+$white: #ffffff;
+$footercolor1: #586979;
+$blackopacity: rgba(0, 0, 0, 0.3);
+
+$editorbg: #e9edef;
+$editor-color1: #515151;
+$editor-color2: #424f5c;
+$editor-color3: #2c3741;
+$editor-color4: #42505d;
+
+
+@mixin color-inputtext {
+    color: $active1;
+    caret-color: $emcolor1;
+    border: 1px solid $linegray;
+    &::placeholder {
+        color: $textgray2;
+        font-weight: 300;
+    }
+    &:focus:not(:read-only)::placeholder {
+        color: $disabled1;
+    }
+    &:hover {
+        border-color: $textgray2;
+    }
+    &:focus {
+        border-color: $active1;
+    }
+    &:disabled{
+        color: $gray5;
+        border-color: $linegray;
+        background-color: $backgroundColor;
+    }
+    &:read-only {
+        color: $active1;
+        caret-color: $emcolor4;
+        background-color: $white;
+    }
+}
+@mixin color-editorinputtext {
+    color: $textgray4;
+    caret-color: $emcolor1;
+    border: 1px solid $gray6;
+    background-color: $gray6;
+    &::placeholder {
+        color: $gray4;
+        font-weight: 300;
+    }
+    &:focus:not(:read-only)::placeholder {
+        color: #dbe6eb;
+    }
+    &:hover {
+        border-color: $gray4;
+    }
+    &:focus {
+        border-color: $textgray4;
+    }
+    &:disabled,
+    &:read-only {
+        color: $gray5;
+        border-color: $linegray;
+        background-color: $backgroundColor;
+    }
+}
+
+@mixin color-black {
+    color: $white;
+    background-color: $textgray1;
+    &:hover {
+      background-color: $active1;
+    }
+    &:disabled{
+        color: $linegray;
+        background-color: $white;
+        border: 1px solid $linegray;
+        &:hover {
+            background-color: $white;
+        }
+    }
+    &.type2:disabled {
+        border: 1px solid $linegray;
+    }
+}
+
+@mixin color-whitetype1 {
+    color: $textgray1;
+    border: 1px solid $emcolor4;
+    background-color: $white;
+    &:hover {
+        background-color: $emcolor4;
+        color: $white;
+        border-color: $emcolor4;
+        border-width: 1px;
+    }
+    &:disabled{
+        color: $linegray;
+        background-color: $white;
+        border: 1px solid $linegray;
+        &:hover {
+            background-color: $white;
+        }
+    }
+}
+@mixin color-whitetype2 {
+    color: $emcolor4;
+    border: 1px solid $emcolor4;
+    background-color: $white;
+    &:hover {   
+        color: $white;   
+        background-color: $emcolor4;
+        border-color: $emcolor4;
+    } 
+    &:disabled{
+        color: $linegray;
+        background-color: $white;
+        border: 1px solid $linegray;
+        &:hover {
+            background-color: $white;
+        }
+    }
+}
+@mixin color-btnwhiteicon {
+    color: $emcolor1;
+    &:hover {      
+        color: $white;
+    } 
+}
+@mixin color-blacktype2 {
+    color: $emcolor1;
+    border: 1px solid $emcolor1;
+    background-color: $white;
+    &:hover {   
+        color: $white;   
+        background-color: $emcolor1;
+        border-color: $emcolor1;
+    } 
+    &:disabled{
+        color: $linegray;
+        background-color: $white;
+        border: 1px solid $linegray;
+        &:hover {
+            background-color: $white;
+        }
+    }
+}
+@mixin color-iconbtn {
+    color: $emcolor5;
+    border: 1px solid $emcolor5;
+    background-color: $white;
+    &:hover {   
+        color: $white;
+        background-color: $emcolor5;
+        border-color: $emcolor5;
+    } 
+    &:disabled{
+        color: $linegray;
+        background-color: $white;
+        border: 1px solid $linegray;
+        &:hover {
+            color: $linegray;
+            background-color: $white;
+        }
+    }
+}
+@mixin color-textbtn {
+    color: $textgray1;
+    border: 1px solid $emcolor5;
+    background-color: $white;
+    &:hover {   
+        color: $white;
+        background-color: $emcolor5;
+        border-color: $emcolor5;
+    } 
+    &:disabled{
+        color: $linegray;
+        background-color: $white;
+        border: 1px solid $linegray;
+        &:hover {
+            background-color: $white;
+        }
+    }
+}
+
+@mixin color-btneditor{
+    border: 1px solid $gray4;
+    background-color: $white;
+    color: $textgray5;
+    &:hover {   
+        color: $white;
+        background-color: $emcolor1;
+        border-color: $emcolor1;
+    } 
+    &:disabled{
+        color: $linegray;
+        background-color: $white;
+        border: 1px solid $linegray;
+        &:hover {
+            background-color: $white;
+        }
+    }
+}
+
+@mixin color-boxshadow( $bg, $opacity ) {
+    background-color: $bg;
+    box-shadow: 0px 2px 10px 0px rgba(0, 0, 0, $opacity);
+}
+@mixin color-infotable {
+    &.type2{
+        border-top: 1px solid $linegray;
+        th {            
+            background-color: $gray3;
+        }
+    }
+    table{
+        th{
+            background-color: $gray3;
+        }
+        td{
+            color: $textgray2;
+            background-color: $white;
+        }        
+        .sub{
+            th {
+                background-color: $gray2;
+            }
+        }
+        tbody{
+            tr {
+                border-bottom: 1px solid $linegray;
+            }
+            th {
+                color: $textgray1;
+                background-color: $white;
+            }
+        }
+    }
+}
+@mixin color-listtable{
+    &.type2{
+        thead th {
+            background-color: $gray3;
+            border-bottom: none !important;
+        }
+    }
+    thead th {
+        border-top: none;
+        border-left: none;
+        border-right: none;
+        border-bottom: 1px solid $textgray2 !important;        
+    }
+    tbody {
+        background-color: $white;
+        tr {
+            border-bottom: 1px solid $linegray;
+        }
+        td {
+            border-top: none;
+            border-left: none;
+            border-right: none;
+            color: $textgray2;            
+            .blue,
+            &.blue{
+                color: $emcolor1;
+            }
+            .title,
+            &.title{
+                color: $textgray1;
+            }            
+        }
+    }
+}
+@mixin color-text {
+    &-em-color {
+        color: $emcolor1 !important;
+    }
+    &-em-yellow {
+        color: $emcolor5 !important;        
+    }
+}

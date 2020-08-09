@@ -1,0 +1,46 @@
+{
+    "login": "login",
+    "menu": {
+        "home": {
+            "title": "홈"
+        },
+        "maps": {
+            "title": "서비스관리"
+        },
+        "contents": {
+            "title": "콘텐츠관리",
+            "sub": {
+                "poi": "POI",
+                "ar": "AR",
+                "course": "코스",
+                "zone": "ZONE"
+            }
+        },
+        "mng": {
+            "title": "운영관리",
+            "sub": {
+                "company": "기업관리",
+                "user": "회원관리"
+            }
+        },
+        "service": {
+            "title": "고객센터",
+            "sub": {
+                "notice": "공지사항",
+                "faq": "자주묻는질문",
+                "contact": "1:1문의",
+                "guide": "사용가이드",
+                "terms": "이용약관"
+            }
+        },
+        "report": {
+            "title": "통계조회",
+            "sub": {
+                "use": "사용현황",
+                "map": "지도별사용현황",
+                "course": "코스사용현황",
+                "bookmark": "즐겨찾기현황"
+            }
+        }
+    }
+}
