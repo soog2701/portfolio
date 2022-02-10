@@ -48,7 +48,7 @@
     "express": "^4.17.1",
     "jquery": "^3.5.1",
     "jquery-ui": "^1.12.1",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "prettier": "github:prettier/prettier",
     "qs": "^6.9.4",
     "react-cookie": "^4.0.3",
