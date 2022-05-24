@@ -47,7 +47,7 @@
     "eslint-plugin-react-hooks": "^4.0.8",
     "express": "^4.17.1",
     "jquery": "^3.5.1",
-    "jquery-ui": "^1.12.1",
+    "jquery-ui": "^1.13.0",
     "node-sass": "^4.14.1",
     "prettier": "github:prettier/prettier",
     "qs": "^6.9.4",
